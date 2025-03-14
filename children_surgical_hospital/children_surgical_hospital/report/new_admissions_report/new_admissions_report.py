@@ -6,15 +6,16 @@ def execute(filters=None):
 
     # Define columns
     columns = [
-        {"label": "Patient ID", "fieldname": "patient_id", "fieldtype": "Data", "width": 150},
+        {"label": "Medical Record Number (MR)", "fieldname": "patient_id", "fieldtype": "Data", "width": 150},
         {"label": "Patient Name", "fieldname": "patient_name", "fieldtype": "Data", "width": 200},
         {"label": "Doctor", "fieldname": "dr_id", "fieldtype": "Data", "width": 150},
         {"label": "Operation", "fieldname": "operations", "fieldtype": "Data", "width": 200},
         {"label": "Operation Doctor ID", "fieldname": "operation_doctor_id", "fieldtype": "Data", "width": 150},
         {"label": "Anesthesia Doctor", "fieldname": "anesthesia_doctor", "fieldtype": "Data", "width": 150},
         {"label": "Payment Date", "fieldname": "payment_date", "fieldtype": "Date", "width": 120},
-        {"label": "Payment Amount", "fieldname": "payment_amount", "fieldtype": "Currency", "width": 120},
-        {"label": "Payment Remarks", "fieldname": "payment_remarks", "fieldtype": "Data", "width": 250},
+	{"label": "Total Payment", "fieldname": "total_payment_amount", "fieldtype": "Date", "width": 120},
+        {"label": "Amount Paid", "fieldname": "payment_amount", "fieldtype": "Currency", "width": 120},
+        {"label": "Due Amount", "fieldname": "payment_remarks", "fieldtype": "Data", "width": 250},
         {"label": "Date of Admission", "fieldname": "date", "fieldtype": "Date", "width": 120},
         {"label": "Time", "fieldname": "time_of_admission", "fieldtype": "Time", "width": 120},
         {"label": "Date of Discharge", "fieldname": "date_of_discharge", "fieldtype": "Date", "width": 120},
@@ -32,9 +33,10 @@ def execute(filters=None):
             nao.anesthesia_doctor AS anesthesia_doctor,
             nap.date AS payment_date,
             nap.payment_amount AS payment_amount,
+	    nap.total_payment_amount AS total_payment_amount,
             nap.remarks AS payment_remarks,
             na.date AS date,
-            na.time AS time_of_admission,
+            na.time_of_admission AS time_of_admission,
             na.date_of_discharge AS date_of_discharge,
             na.time_of_discharge AS time_of_discharge
         FROM 

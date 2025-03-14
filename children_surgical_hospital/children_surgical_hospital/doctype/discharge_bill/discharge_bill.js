@@ -126,6 +126,8 @@
 frappe.ui.form.on('Discharge Bill', {
     onload: function(frm) {
         if (frm.doc.admission_no) {
+            frm.set_value('advance', 0); // Temporary default to prevent lag
+
             frappe.call({
                 method: 'frappe.client.get',
                 args: {
@@ -139,11 +141,14 @@ frappe.ui.form.on('Discharge Bill', {
                         frm.set_value('admit_in', admission.admission_in);
                         frm.set_value('admission_fee', 500); // Default fee
 
-                        // Calculate total advance payments
+                        // Calculate total advance payments immediately
                         let total_advance = admission.payments?.reduce((sum, row) => sum + (parseFloat(row.payment_amount) || 0), 0) || 0;
 
                         frm.set_value('advance', total_advance);
-                        frm.refresh_field('advance');
+                        frm.refresh_field('advance'); // Ensure it updates immediately
+
+                        // Recalculate grand total after advance update
+                        frm.trigger('calculate_total');
                     }
                 }
             });
@@ -154,6 +159,7 @@ frappe.ui.form.on('Discharge Bill', {
         if (frm.doc.date_of_admission && frm.doc.date_of_discharge) {
             let days = frappe.datetime.get_day_diff(frm.doc.date_of_discharge, frm.doc.date_of_admission);
             frm.set_value('no_of_days', days);
+            frm.trigger('calculate_total');
         }
     },
 
@@ -161,6 +167,7 @@ frappe.ui.form.on('Discharge Bill', {
         if (frm.doc.operation_fee) {
             frm.set_value('anaethetist_fee', 5000);
             frm.set_value('theater_charges', 5000);
+            frm.trigger('calculate_total');
         }
     },
 
@@ -186,10 +193,12 @@ frappe.ui.form.on('Discharge Bill', {
         frm.set_value('ward_charges', ward_charges);
         frm.set_value('icu_charges', icu_charges);
         frm.set_value('room_charges', room_charges);
+        frm.trigger('calculate_total');
     },
 
     on_oxygen_days: function(frm) {
         frm.set_value('oxygen_charges', (frm.doc.on_oxygen_days || 0) * 6000);
+        frm.trigger('calculate_total');
     },
 
     no_of_days: function(frm) {
@@ -198,9 +207,14 @@ frappe.ui.form.on('Discharge Bill', {
         frm.set_value('abdul_visiting_fee', days * 2000);
         frm.set_value('medical_officer', days * 500);
         frm.set_value('nursing_care', days * 300);
+        frm.trigger('calculate_total');
     },
 
     validate: function(frm) {
+        frm.trigger('calculate_total');
+    },
+
+    calculate_total: function(frm) {
         function getNumber(value) {
             return isNaN(parseFloat(value)) ? 0 : parseFloat(value);
         }
@@ -225,8 +239,10 @@ frappe.ui.form.on('Discharge Bill', {
                     getNumber(frm.doc.ota_charges);
 
         frm.set_value('total', total);
+        frm.refresh_field('total');
 
         let grand_total = total - getNumber(frm.doc.advance) - getNumber(frm.doc.discount);
         frm.set_value('grand_total', grand_total);
+        frm.refresh_field('grand_total');
     }
 });

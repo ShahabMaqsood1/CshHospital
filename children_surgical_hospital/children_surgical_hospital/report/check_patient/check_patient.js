@@ -25,7 +25,7 @@ frappe.query_reports["Check Patient"] = {
         },
         {
             "fieldname": "patient_id",
-            "label": __("Patient ID"),
+            "label": __("Medical Record Number (MR)"),
             "fieldtype": "Data",
             "reqd": 0
         }

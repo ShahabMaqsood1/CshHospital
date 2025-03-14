@@ -1,5 +1,6 @@
 {
  "actions": [],
+ "allow_import": 1,
  "allow_rename": 1,
  "autoname": "format:{doctor_name}",
  "creation": "2024-12-12 15:57:47.146910",
@@ -66,7 +67,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-01-22 22:09:47.125622",
+ "modified": "2025-02-19 20:20:41.368332",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Doctor",

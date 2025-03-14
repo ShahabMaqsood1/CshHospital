@@ -1,0 +1,267 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{CSH}-{ER}-{####}",
+ "creation": "2025-02-18 20:04:17.100796",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gnzd",
+  "date",
+  "patient_id",
+  "emergency",
+  "patient_name",
+  "gender",
+  "weight",
+  "email",
+  "doctor",
+  "initial_diagnose",
+  "age",
+  "column_break_sgsu",
+  "time",
+  "phone_number",
+  "cnic",
+  "father_name",
+  "address",
+  "blood",
+  "section_break_gtnr",
+  "years",
+  "column_break_uytq",
+  "months",
+  "column_break_trqs",
+  "days",
+  "column_break_veen",
+  "date_of_birth",
+  "section_break_yobz",
+  "fee",
+  "section_break_iied",
+  "receptionist",
+  "amended_from",
+  "column_break_bhlz",
+  "disposal",
+  "signature"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gnzd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nNew Born\nOthers"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father/Husband Name"
+  },
+  {
+   "fetch_from": "patient_id.address",
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "initial_diagnose",
+   "fieldtype": "Data",
+   "label": "Initial Diagnose"
+  },
+  {
+   "fieldname": "doctor",
+   "fieldtype": "Link",
+   "label": "Report to Doctor",
+   "options": "Doctor"
+  },
+  {
+   "fieldname": "fee",
+   "fieldtype": "Table",
+   "label": "Fee",
+   "options": "Emergency Payment"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Emergency",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "disposal",
+   "fieldtype": "Select",
+   "label": "Disposal of Patient",
+   "options": "\nAdmit\nDischarge\nLama"
+  },
+  {
+   "fieldname": "receptionist",
+   "fieldtype": "Data",
+   "label": "Receptionist",
+   "read_only": 1
+  },
+  {
+   "fieldname": "signature",
+   "fieldtype": "Data",
+   "label": "Signature",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_sgsu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_iied",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_bhlz",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Data",
+   "label": "Date of Birth",
+   "read_only": 1
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "years",
+   "fieldtype": "Int",
+   "label": "Years"
+  },
+  {
+   "fieldname": "months",
+   "fieldtype": "Int",
+   "label": "Months"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days"
+  },
+  {
+   "fieldname": "section_break_gtnr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_uytq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_trqs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "patient_id",
+   "fieldtype": "Link",
+   "label": "Medical Record Number (MR)",
+   "options": "Patient Record"
+  },
+  {
+   "fieldname": "section_break_yobz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC"
+  },
+  {
+   "fieldname": "blood",
+   "fieldtype": "Data",
+   "label": "Blood Group"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone / C.Number"
+  },
+  {
+   "default": "1",
+   "fieldname": "emergency",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Emergency"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Patient Email"
+  },
+  {
+   "fieldname": "column_break_veen",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-03-10 22:14:22.332399",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "Emergency",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

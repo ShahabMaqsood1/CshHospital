@@ -5,12 +5,13 @@ def execute(filters=None):
         # Define columns
         columns = [
             {"label": "Naming Series", "fieldname": "naming_series", "fieldtype": "Data", "width": 150},
-            {"label": "Patient ID", "fieldname": "patient_id", "fieldtype": "Data", "width": 120},
+            {"label": "Medical Record Number (MR)", "fieldname": "patient_id", "fieldtype": "Data", "width": 120},
             {"label": "Patient Name", "fieldname": "patient_name", "fieldtype": "Data", "width": 200},
             {"label": "Doctor ID", "fieldname": "doctor_id", "fieldtype": "Data", "width": 200},
             {"label": "Age", "fieldname": "age", "fieldtype": "Data", "width": 100},
             {"label": "Status", "fieldname": "status", "fieldtype": "Data", "width": 120},
-            {"label": "Payment", "fieldname": "payment", "fieldtype": "Currency", "width": 200},
+            {"label": "NVF", "fieldname": "nvf", "fieldtype": "Check", "width": 80},
+            {"label": "Original Charge", "fieldname": "payment", "fieldtype": "Currency", "width": 200},
             {"label": "Discount", "fieldname": "discount", "fieldtype": "Currency", "width": 200},
             {"label": "Remaining Total", "fieldname": "remaining_total", "fieldtype": "Currency", "width": 200},
             {"label": "Appointment Date", "fieldname": "appointment_date", "fieldtype": "Date", "width": 150},
@@ -27,6 +28,7 @@ def execute(filters=None):
                 pa.doctor_id AS doctor_id,
                 pa.age AS age,
                 pa.status AS status,
+                pa.nvf AS nvf,
                 pa.payment AS payment,
                 pa.discount AS discount,
                 pa.remaining_total AS remaining_total,

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{patient_id}-{MM}-{DD}",
+ "autoname": "format:{ADM}{YYYY}-{######}",
  "creation": "2025-02-17 18:56:59.247825",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -10,13 +10,15 @@
   "patient_name",
   "age",
   "weight",
-  "phone",
+  "email",
+  "dr_id",
   "amended_from",
   "column_break_igcf",
+  "phone_number",
+  "father_name",
+  "gender",
+  "cnic",
   "address",
-  "fathermother_name",
-  "identity_card_number",
-  "dr_id",
   "admission_in",
   "section_break_ilvu",
   "admission_operations",
@@ -28,8 +30,7 @@
   "receptionist",
   "column_break_akzw",
   "date_of_discharge",
-  "time_of_discharge",
-  "amended_from"
+  "time_of_discharge"
  ],
  "fields": [
   {
@@ -37,26 +38,23 @@
    "fieldname": "patient_id",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Patient_ID",
+   "label": "Medical Record Number (MR)",
    "options": "Patient Record",
    "reqd": 1
   },
   {
-   "fetch_from": "patient_id.patient_name",
    "fieldname": "patient_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Patient Name"
   },
   {
-   "fetch_from": "patient_id.age",
    "fieldname": "age",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Age"
   },
   {
-   "fetch_from": "patient_id.weight",
    "fieldname": "weight",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -66,25 +64,6 @@
    "fieldname": "address",
    "fieldtype": "Data",
    "label": "Address"
-  },
-  {
-   "fetch_from": "patient_id.contact_number",
-   "fieldname": "phone",
-   "fieldtype": "Data",
-   "label": "Phone",
-   "reqd": 1
-  },
-  {
-   "fieldname": "fathermother_name",
-   "fieldtype": "Data",
-   "label": "Father/Mother Name",
-   "reqd": 1
-  },
-  {
-   "fieldname": "identity_card_number",
-   "fieldtype": "Data",
-   "label": "Identity Card Number",
-   "reqd": 1
   },
   {
    "fieldname": "dr_id",
@@ -179,12 +158,41 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father/Mother Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "reqd": 1
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Patient Email"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nNew Born\nOthers"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "Identity Card Number(CNIC)",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-17 18:56:59.247825",
+ "modified": "2025-03-11 00:07:53.367696",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "New Admission",

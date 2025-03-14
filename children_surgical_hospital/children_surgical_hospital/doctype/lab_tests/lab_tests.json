@@ -15,6 +15,7 @@
    "allow_on_submit": 1,
    "fieldname": "lab_tests",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Lab tests",
    "options": "Lab tests list"
   },
@@ -34,7 +35,7 @@
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-05 18:14:58.887038",
+ "modified": "2025-02-23 15:00:11.921523",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "lab tests",

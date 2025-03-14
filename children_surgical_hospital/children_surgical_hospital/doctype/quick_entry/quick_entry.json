@@ -1,0 +1,54 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2025-02-24 23:35:33.971910",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "select_doctype",
+  "column_break_dtyu",
+  "select_report"
+ ],
+ "fields": [
+  {
+   "fieldname": "select_doctype",
+   "fieldtype": "Select",
+   "label": "Select Doctype",
+   "options": "\nPatient Appointment\nER Patient Record\nEmergency\nNew Admission\nAdditional Payments\nLab Reports\nDischarge Bill\nExpenses"
+  },
+  {
+   "fieldname": "select_report",
+   "fieldtype": "Select",
+   "label": "Select Report",
+   "options": "\nPatient Appointment\nCheck Patient\nAdditional Payments Report\nLab Reports\nNew Admissions Report\nEmergency\nSummary"
+  },
+  {
+   "fieldname": "column_break_dtyu",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-02-25 22:19:20.411514",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "Quick Entry",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

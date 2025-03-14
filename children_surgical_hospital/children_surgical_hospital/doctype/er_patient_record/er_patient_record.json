@@ -1,0 +1,173 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{CSH}-{####}-{MM}-{YYYY}{ER}",
+ "creation": "2025-02-18 23:12:40.396066",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_gnzd",
+  "patient_name",
+  "gender",
+  "phone",
+  "initial_diagnose",
+  "column_break_sgsu",
+  "father_name",
+  "address",
+  "section_break_soqx",
+  "age",
+  "column_break_mjse",
+  "date_of_birth",
+  "section_break_gtnr",
+  "years",
+  "column_break_uytq",
+  "months",
+  "column_break_trqs",
+  "days",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_gnzd",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Gender",
+   "options": "\nMale\nFemale",
+   "reqd": 1
+  },
+  {
+   "default": "+92-",
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "in_list_view": 1,
+   "label": "Phone / C.Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_sgsu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Father/Husband Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "section_break_soqx",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fieldname": "column_break_mjse",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "date_of_birth",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "section_break_gtnr",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "years",
+   "fieldtype": "Int",
+   "label": "Years"
+  },
+  {
+   "fieldname": "column_break_uytq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "months",
+   "fieldtype": "Int",
+   "label": "Months"
+  },
+  {
+   "fieldname": "column_break_trqs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Int",
+   "label": "Days"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "ER Patient Record",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "initial_diagnose",
+   "fieldtype": "Data",
+   "label": "Initial Diagnose"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-02-25 22:28:39.688393",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "ER Patient Record",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

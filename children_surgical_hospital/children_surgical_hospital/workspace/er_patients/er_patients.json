@@ -1,0 +1,57 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"tTaTMZEnbu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create New Emergency\",\"col\":6}},{\"id\":\"QYxJoMTINE\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Emergency Report\",\"col\":6}},{\"id\":\"PatFjy8eAP\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Emergency Patients List\",\"col\":4}}]",
+ "creation": "2025-02-19 19:40:06.007106",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "notification-with-indicator",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "ER Patients",
+ "links": [],
+ "modified": "2025-03-02 14:45:06.253236",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "ER Patients",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Emergency",
+   "label": "Emergency Patients List",
+   "quick_list_filter": "[]"
+  }
+ ],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Receptionist"
+  }
+ ],
+ "sequence_id": 4.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Create New Emergency",
+   "type": "URL",
+   "url": "https://www.childrensurgicalhospital.org/app/emergency/new-emergency-gxmuxhsvsx"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Emergency Report",
+   "type": "URL",
+   "url": "https://www.childrensurgicalhospital.org/app/query-report/Emergency"
+  }
+ ],
+ "title": "ER Patients"
+}

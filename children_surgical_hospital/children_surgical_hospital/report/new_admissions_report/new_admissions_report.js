@@ -17,7 +17,7 @@ frappe.query_reports["New Admissions Report"] = {
         },
         {
             "fieldname": "patient_id",
-            "label": __("Patient ID"),
+            "label": __("Medical Record Number (MR)"),
             "fieldtype": "Data",
             "reqd": 0
         },

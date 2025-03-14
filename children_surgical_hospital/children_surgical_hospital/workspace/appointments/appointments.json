@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "Appointments",
  "links": [],
- "modified": "2025-02-12 23:09:22.111165",
+ "modified": "2025-03-02 14:45:06.194638",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Appointments",
@@ -45,21 +45,21 @@
    "role": "Receptionist"
   }
  ],
- "sequence_id": 2.0,
+ "sequence_id": 3.0,
  "shortcuts": [
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "Create New Appointment",
    "type": "URL",
-   "url": "http://209.38.149.177:8080/app/patient-appointment/new-patient-appointment-daurtjstgt"
+   "url": "https://www.childrensurgicalhospital.org/app/patient-appointment/new-patient-appointment-ktrevvrsov"
   },
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "Open Appointments Report",
    "type": "URL",
-   "url": "http://209.38.149.177:8080/app/query-report/Patient%20Appointment"
+   "url": "https://www.childrensurgicalhospital.org/app/query-report/Patient%20Appointment?from_date=2025-02-11&to_date=2025-02-18"
   }
  ],
  "title": "Appointments"

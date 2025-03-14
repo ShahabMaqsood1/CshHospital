@@ -5,7 +5,7 @@
    "label": "Admissions Chart"
   }
  ],
- "content": "[{\"id\":\"Y-kBCCaHYr\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Admissions\",\"col\":3}},{\"id\":\"lGODFQaTbL\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Admission Payments\",\"col\":3}},{\"id\":\"GZnWyAMu8r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Admissions Today\",\"col\":3}},{\"id\":\"__ZiLs1ayG\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Payments Today\",\"col\":3}},{\"id\":\"fvc_FRJ-3M\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create New Admission\",\"col\":5}},{\"id\":\"7S6oy3xgYm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Admissions Report\",\"col\":5}},{\"id\":\"qg-OwGaoPB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Admissions List\",\"col\":4}},{\"id\":\"_4m5psj2hL\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Admissions Chart\",\"col\":8}}]",
+ "content": "[{\"id\":\"Y-kBCCaHYr\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Admissions\",\"col\":3}},{\"id\":\"GZnWyAMu8r\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Admissions Today\",\"col\":3}},{\"id\":\"fvc_FRJ-3M\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create New Admission\",\"col\":7}},{\"id\":\"7S6oy3xgYm\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Admissions Report\",\"col\":5}},{\"id\":\"qg-OwGaoPB\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Admissions List\",\"col\":4}},{\"id\":\"_4m5psj2hL\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Admissions Chart\",\"col\":8}}]",
  "creation": "2025-02-12 23:08:32.184141",
  "custom_blocks": [],
  "docstatus": 0,
@@ -18,22 +18,14 @@
  "is_hidden": 0,
  "label": "Admissions",
  "links": [],
- "modified": "2025-02-12 23:08:32.184141",
+ "modified": "2025-03-05 00:43:12.453612",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Admissions",
  "number_cards": [
   {
-   "label": "Total Admission Payments",
-   "number_card_name": "Admission Total"
-  },
-  {
    "label": "Total Admissions Today",
    "number_card_name": "Admission Count Today"
-  },
-  {
-   "label": "Total Payments Today",
-   "number_card_name": "Admission Total Payments Today"
   },
   {
    "label": "Total Admissions",
@@ -58,21 +50,21 @@
    "role": "Receptionist"
   }
  ],
- "sequence_id": 4.0,
+ "sequence_id": 6.0,
  "shortcuts": [
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "Create New Admission",
    "type": "URL",
-   "url": "http://209.38.149.177:8080/app/new-admission/new-new-admission-yesuuqqqld"
+   "url": "https://www.childrensurgicalhospital.org/app/new-admission/new-new-admission-fshkzirppj"
   },
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "Admissions Report",
    "type": "URL",
-   "url": "http://209.38.149.177:8080/app/query-report/New%20Admissions%20Report"
+   "url": "https://www.childrensurgicalhospital.org/app/query-report/New%20Admissions%20Report"
   }
  ],
  "title": "Admissions"

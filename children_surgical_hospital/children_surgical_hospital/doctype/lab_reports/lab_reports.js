@@ -7,63 +7,51 @@
 // 	},
 // });
 frappe.ui.form.on('Lab Reports', {
+    onload: function(frm) {
+        frm.set_query('check_patient_no', function() {
+            return {
+                filters: [
+                    ['Check Patient', 'docstatus', '=', 1], // Only submitted (docstatus = 1)
+                    ['Check Patient', 'modified', '>=', frappe.datetime.now_date() + ' 00:00:00'], // Today’s date
+                    ['Check Patient', 'modified', '<=', frappe.datetime.now_date() + ' 23:59:59']  // Before tomorrow
+                ]
+            };
+        });
+    }
+});
+
+frappe.ui.form.on('Lab Reports', {
     check_patient_no: function(frm) {
         // Ensure that the 'check_patient_no' is filled before proceeding
         if (!frm.doc.check_patient_no) {
-            frappe.msgprint(('Please select a Check Patient record.'));
+            frappe.msgprint('Please select a Check Patient record.');
             return;
         }
 
-        // Fetch the corresponding 'Check Patient' record using the 'check_patient_no'
-        frappe.db.get_value('Check Patient', { 'name': frm.doc.check_patient_no }, 'patient_id')
-            .then(result => {
-                if (result.message && result.message.patient_id) {
-                    let patient_id = result.message.patient_id; // Get the patient_id from Check Patient record
+        // Fetch lab_tests directly from the Check Patient Doctype
+        frappe.db.get_doc('Check Patient', frm.doc.check_patient_no)
+            .then(check_patient_doc => {
+                if (check_patient_doc && check_patient_doc.lab_tests) {
+                    // Clear the current lab_tests field in Lab Reports before populating it
+                    frm.set_value('lab_tests', []);
 
-                    // Fetch the 'Patient Record' using the correct field
-                    frappe.db.get_value('Patient Record', { 'name': patient_id }, ['name', 'lab_tests'])
-                        .then(patient_result => {
-                            if (patient_result.message && patient_result.message.name) {
-                                // Fetch the full 'Patient Record' document if necessary
-                                frappe.db.get_doc('Patient Record', patient_result.message.name)
-                                    .then(patient_record_doc => {
-                                        if (patient_record_doc && patient_record_doc.lab_tests) {
-                                            // Clear the current lab_tests field in Lab Reports before populating it
-                                            frm.set_value('lab_tests', []);
-
-                                            // Loop through the lab_tests from the Patient Record and add them to Lab Reports
-                                            patient_record_doc.lab_tests.forEach(lab_test => {
-                                                frm.add_child('lab_tests', {
-                                                    'lab_tests': lab_test.lab_tests // You can add more fields if necessary
-                                                });
-                                            });
-
-                                            // Refresh the field to display the updated lab_tests table
-                                            frm.refresh_field('lab_tests');
-                                            frappe.msgprint(('Lab tests data fetched successfully.'));
-                                        } else {
-                                            frappe.msgprint(('No lab tests found for this patient.'));
-                                        }
-                                    })
-                                    .catch(error => {
-                                        console.log('Error fetching Patient Record:', error);
-                                        frappe.msgprint(('Failed to fetch the full Patient Record.'));
-                                    });
-                            } else {
-                                frappe.msgprint(('Patient Record not found for the provided patient ID.'));
-                            }
-                        })
-                        .catch(error => {
-                            console.log('Error fetching Patient Record:', error);
-                            frappe.msgprint(('Failed to fetch Patient Record.'));
+                    // Loop through the lab_tests from Check Patient and add them to Lab Reports
+                    check_patient_doc.lab_tests.forEach(lab_test => {
+                        frm.add_child('lab_tests', {
+                            'lab_tests': lab_test.lab_tests // Adjust field name if necessary
                         });
+                    });
+
+                    // Refresh the field to display the updated lab_tests table
+                    frm.refresh_field('lab_tests');
+                    frappe.msgprint('Lab tests data fetched successfully.');
                 } else {
-                    frappe.msgprint(('No Patient ID found for the selected Check Patient.'));
+                    frappe.msgprint('No lab tests found for this Check Patient.');
                 }
             })
             .catch(error => {
                 console.log('Error fetching Check Patient record:', error);
-                frappe.msgprint(('Failed to fetch Check Patient record.'));
+                frappe.msgprint('Failed to fetch Check Patient record.');
             });
     }
 });
@@ -80,7 +68,7 @@ frappe.ui.form.on('Lab Reports', {
             console.log('Lab test table set to read-only.');
 
             // Check if the user is not Shahab (admin)
-            if (frappe.session.user !== "thebebia1@gmail.com") {
+            if (frappe.session.user !== "Administrator") {
                 console.log('User is not Shahab, setting payment_amount to read-only.');
                 
                 // Set payment_amount field in the child table to read-only for non-admin users
@@ -181,3 +169,202 @@ frappe.ui.form.on('Lab Reports', {
             });
     }
 });
+// Copyright (c) 2024, Shahab Maqsood and contributors
+// For license information, please see license.txt
+
+frappe.ui.form.on("Lab Reports", {
+refresh(frm) {
+
+	},
+});
+// Copyright (c) 2024, Shahab Maqsood and contributors
+// For license information, please see license.txt
+let phoneSearchTimeout;
+
+frappe.ui.form.on("Lab Reports", {
+    phone_number: function (frm) {
+        if (phoneSearchTimeout) {
+            clearTimeout(phoneSearchTimeout);
+        }
+
+        phoneSearchTimeout = setTimeout(() => {
+            if (frm.doc.phone_number) {
+                frappe.call({
+                    method: "frappe.client.get_list",
+                    args: {
+                        doctype: "Patient Record",
+                        filters: {
+                            contact_number: frm.doc.phone_number
+                        },
+                        fields: ["name", "patient_name", "contact_number"]
+                    },
+                    callback: function (response) {
+                        let patients = response.message;
+                        if (patients.length > 0) {
+                            let options = patients.map(patient => ({
+                                label: `${patient.patient_name} (${patient.contact_number})`,
+                                value: patient.name
+                            }));
+
+                            frappe.prompt(
+                                [
+                                    {
+                                        label: "Select Patient",
+                                        fieldname: "selected_patient",
+                                        fieldtype: "Select",
+                                        options: options.map(opt => opt.label)
+                                    }
+                                ],
+                                (data) => {
+                                    let selected = options.find(opt => opt.label === data.selected_patient);
+                                    if (selected) {
+                                        frm.set_value("patient_id", selected.value);
+                                        frm.trigger("fetch_patient_data"); // Fetch data once selected
+                                    }
+                                },
+                                "Select Patient",
+                                "OK"
+                            );
+                        } else {
+                           
+                        }
+                    }
+                });
+            }
+        }, 5000); // 5-second delay
+    },
+
+    patient_id: function (frm) {
+        if (frm.doc.patient_id) {
+            frm.trigger("fetch_patient_data");
+        }
+    },
+
+    fetch_patient_data: function (frm) {
+        frappe.call({
+            method: "frappe.client.get",
+            args: {
+                doctype: "Patient Record",
+                name: frm.doc.patient_id
+            },
+            callback: function (response) {
+                let patient = response.message;
+                if (patient) {
+                    // Fetch and allow editing
+                    frm.set_value("patient_name", patient.patient_name);
+                    frm.set_value("age", patient.age);
+                    frm.set_value("gender", patient.gender);
+                    frm.set_value("weight", patient.weight);
+                    frm.set_value("father_name", patient.father_name);
+                    frm.set_value("cnic", patient.cnic);
+                    frm.set_value("phone_number", patient.contact_number);
+		    frm.set_value("address", patient.address);
+
+                    // Ensure fields are editable
+                    ["patient_name", "age", "gender", "weight", "father_name", "cnic", "phone_number", "address", "emergency"].forEach(field => {
+                        frm.set_df_property(field, "read_only", 0);
+                    });
+                }
+            }
+        });
+    },
+
+    after_save: function (frm) {
+        if (frm.doc.patient_id) {
+            frappe.call({
+                method: "frappe.client.set_value",
+                args: {
+                    doctype: "Patient Record",
+                    name: frm.doc.patient_id,
+                    fieldname: {
+                        "patient_name": frm.doc.patient_name,
+                        "age": frm.doc.age,
+                        "gender": frm.doc.gender,
+                        "weight": frm.doc.weight,
+                        "father_name": frm.doc.father_name,
+                        "cnic": frm.doc.cnic,
+                        "phone_number" : frm.doc.contact_number,
+			"address": frm.doc.address
+                    }
+                },
+                callback: function () {
+                    
+                }
+            });
+        }
+    }
+});
+
+
+frappe.ui.form.on('Lab Reports', {
+    after_save: function(frm) {
+        // Create a custom dialog
+        let dialog = new frappe.ui.Dialog({
+            title: 'Lab Report Submitted',
+            fields: [
+                {
+                    fieldtype: 'HTML',
+                    fieldname: 'message',
+                    options: `
+                        <div>
+                            <p>Report has been submitted successfully</p>
+                            <a class="btn btn-sm btn-primary" 
+                               href="/api/method/frappe.utils.print_format.download_pdf?doctype=Lab%20Reports&name=${frm.doc.name}&format=Lab%20Reports&no_letterhead=0&_lang=English" 
+                               target="_blank">Get PDF</a>
+
+                            <a class="btn btn-sm btn-success"  
+                               href="/printview?doctype=Lab%20Reports&name=${frm.doc.name}&trigger_print=1&format=Lab%20Reports&no_letterhead=0" 
+                               target="_blank">Print</a>
+
+                        </div>
+                    `
+                }
+            ],
+            primary_action_label: 'Close',
+            primary_action: function() {
+                dialog.hide();
+            }
+        });
+
+        dialog.show();
+
+        // Automatically close the dialog after 10 seconds
+        setTimeout(() => {
+            dialog.hide();
+        }, 10000); // 10 seconds
+    }
+});
+
+
+frappe.ui.form.on('Lab Reports', {
+    setup: function(frm) {
+        // Prevent dropdown list from showing all patient IDs
+        frm.set_query("patient_id", function() {
+            return {
+                filters: { name: ["=", ""] }  // This prevents showing all records
+            };
+        });
+    },
+
+    patient_id: function(frm) {
+        if (!frm.doc.patient_id) return;  // Exit if no ID is entered
+
+        frappe.call({
+            method: 'frappe.client.get',
+            args: {
+                doctype: 'Patient Record',  // Ensure this matches the actual Doctype name
+                name: frm.doc.patient_id
+            },
+            callback: function(r) {
+                if (r.message) {
+                    // Existing patient: Refresh field to fetch details
+                    frm.refresh_field("patient_id");
+                }
+            },
+            error: function(err) {
+                console.error("Error fetching patient:", err);
+            }
+        });
+    }
+});
+

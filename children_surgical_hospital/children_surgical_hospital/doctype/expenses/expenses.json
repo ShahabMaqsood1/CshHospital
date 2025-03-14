@@ -1,6 +1,6 @@
 {
  "actions": [],
- "autoname": "format:{name1}-{DD}-{MM}-{YY}-{####}",
+ "autoname": "format:{CSHEXP}-{MM}-{YY}-{#####}",
  "creation": "2025-02-17 18:54:36.934304",
  "default_view": "List",
  "doctype": "DocType",
@@ -18,12 +18,16 @@
   {
    "fieldname": "name1",
    "fieldtype": "Data",
-   "label": "Name"
+   "in_list_view": 1,
+   "label": "Name",
+   "reqd": 1
   },
   {
    "fieldname": "reason_for_payment",
    "fieldtype": "Data",
-   "label": "Reason for payment"
+   "in_list_view": 1,
+   "label": "Reason for payment",
+   "reqd": 1
   },
   {
    "fieldname": "payment_amount",
@@ -33,9 +37,11 @@
    "precision": "2"
   },
   {
+   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "read_only": 1
   },
   {
    "fieldname": "receptionist",
@@ -47,7 +53,8 @@
    "default": "Now",
    "fieldname": "time",
    "fieldtype": "Time",
-   "label": "Time"
+   "label": "Time",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -63,7 +70,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-17 18:54:36.934304",
+ "modified": "2025-02-25 00:22:05.368954",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Expenses",

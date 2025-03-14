@@ -17,12 +17,22 @@
   "phone",
   "section_break_uytu",
   "report",
-  "amended_from",
+  "column_break_zjyg",
+  "report1",
+  "column_break_ihxo",
+  "diagnosis",
+  "advice",
+  "note",
   "section_break_dnbd",
+  "report2",
   "lab_tests",
+  "amended_from",
+  "section_break_sjix",
   "payment",
   "discount",
-  "remaining_total"
+  "remaining_total",
+  "column_break_nxgv",
+  "visit_date"
  ],
  "fields": [
   {
@@ -35,7 +45,7 @@
    "fetch_from": "appointment_no.patient_id",
    "fieldname": "patient_id",
    "fieldtype": "Data",
-   "label": "Patient Id"
+   "label": "Medical Record Number (MR)"
   },
   {
    "fetch_from": "appointment_no.phone_number",
@@ -72,24 +82,14 @@
   {
    "fieldname": "report",
    "fieldtype": "Table",
-   "label": "Report",
-   "options": "Patient Report"
+   "label": "Presenting Complaints",
+   "options": "Presenting Complaints Table"
   },
   {
    "fieldname": "lab_tests",
    "fieldtype": "Table",
    "label": "Lab Tests",
    "options": "lab tests"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Check Patient",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   },
   {
    "fetch_from": "appointment_no.gender",
@@ -128,12 +128,72 @@
    "fieldtype": "Currency",
    "label": "Remaining Total",
    "read_only": 1
+  },
+  {
+   "fieldname": "column_break_zjyg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "report1",
+   "fieldtype": "Table",
+   "label": "Medical Examination Findings",
+   "options": "Medical Examination Findings Table"
+  },
+  {
+   "fieldname": "column_break_ihxo",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "diagnosis",
+   "fieldtype": "Data",
+   "label": "Diagnosis"
+  },
+  {
+   "fieldname": "advice",
+   "fieldtype": "Data",
+   "label": "Advice"
+  },
+  {
+   "fieldname": "note",
+   "fieldtype": "Data",
+   "label": "Additional Instructions"
+  },
+  {
+   "fieldname": "report2",
+   "fieldtype": "Table",
+   "label": "Prescription",
+   "options": "Patient Report"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Check Patient",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_sjix",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_nxgv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "visit_date",
+   "fieldtype": "Date",
+   "label": "Visit date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 20:25:32.968296",
+ "modified": "2025-02-25 20:54:20.725792",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Check Patient",
@@ -150,6 +210,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {

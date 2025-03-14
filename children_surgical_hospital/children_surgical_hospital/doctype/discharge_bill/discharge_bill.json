@@ -60,7 +60,7 @@
    "fetch_from": "admission_no.patient_id",
    "fieldname": "patient_id",
    "fieldtype": "Data",
-   "label": "Patient ID"
+   "label": "Medical Record Number (MR)"
   },
   {
    "fetch_from": "admission_no.date",
@@ -90,8 +90,7 @@
   {
    "fieldname": "advance",
    "fieldtype": "Currency",
-   "label": "Advance",
-   "read_only": 1
+   "label": "Advance"
   },
   {
    "fieldname": "grand_total",
@@ -268,7 +267,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-09 13:24:22.374449",
+ "modified": "2025-02-23 01:07:52.342902",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Discharge Bill",

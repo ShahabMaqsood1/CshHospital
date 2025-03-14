@@ -38,7 +38,6 @@
    "read_only": 1
   },
   {
-   "default": "Today",
    "fieldname": "date_of_sale",
    "fieldtype": "Date",
    "label": "Date of Sale"
@@ -81,7 +80,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-01-18 19:40:08.644175",
+ "modified": "2025-02-24 19:28:26.009548",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Pharmacy Sales",

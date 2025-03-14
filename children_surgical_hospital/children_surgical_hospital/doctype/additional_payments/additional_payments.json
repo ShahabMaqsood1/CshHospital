@@ -1,60 +1,71 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{patient_name}-{payment}-{DD}-{MM}-{YY}-{#####}",
+ "autoname": "format:{CSH}-{YYYY}-{######}",
  "creation": "2024-12-12 16:03:03.692798",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "payment",
   "patient_id",
+  "payment",
   "patient_name",
   "age",
-  "reason",
+  "gender",
+  "email",
   "payment_amount",
   "date",
   "receptionist",
-  "amended_from"
+  "amended_from",
+  "column_break_cdkl",
+  "phone_number",
+  "duration",
+  "father_name",
+  "weight",
+  "cnic",
+  "address",
+  "time"
  ],
  "fields": [
   {
    "fieldname": "payment",
    "fieldtype": "Select",
+   "in_list_view": 1,
    "label": "Payment For",
-   "options": "\nShort Stay\nOthers"
+   "options": "\nShort Stay\nBlood Transfusion\nPOP - One Side\nPOP - Two Side\nCircumcision\nCircumcision - Under GA\nInjection\nIND\nEnema\nStitch\nDressing\nOthers",
+   "reqd": 1
   },
   {
    "fieldname": "patient_id",
    "fieldtype": "Link",
-   "label": "Patient ID",
-   "options": "Check Patient"
+   "label": "Medical Record Number (MR)",
+   "options": "Patient Record"
   },
   {
-   "fetch_from": "patient_id.patient_name",
    "fieldname": "patient_name",
    "fieldtype": "Data",
-   "label": "Patient Name"
+   "in_list_view": 1,
+   "label": "Patient Name",
+   "reqd": 1
   },
   {
-   "fetch_from": "patient_id.age",
    "fieldname": "age",
-   "fieldtype": "Int",
-   "label": "Age"
-  },
-  {
-   "fieldname": "reason",
    "fieldtype": "Data",
-   "label": "Reason for Payment"
+   "label": "Age"
   },
   {
    "fieldname": "payment_amount",
    "fieldtype": "Currency",
-   "label": "Payment Amount"
+   "in_list_view": 1,
+   "label": "Payment Amount",
+   "non_negative": 1,
+   "reqd": 1
   },
   {
+   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date"
+   "label": "Date",
+   "read_only": 1
   },
   {
    "fieldname": "amended_from",
@@ -81,12 +92,67 @@
    "fieldtype": "Data",
    "hidden": 1,
    "label": "Receptionist"
+  },
+  {
+   "fieldname": "duration",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Duration",
+   "options": "\n1 hour\n3 hours\n5 hours\nFull Day",
+   "reqd": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nNew Born\nOthers"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Patient Email"
+  },
+  {
+   "fieldname": "column_break_cdkl",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 20:24:57.554617",
+ "modified": "2025-03-11 00:55:00.711089",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Additional Payments",

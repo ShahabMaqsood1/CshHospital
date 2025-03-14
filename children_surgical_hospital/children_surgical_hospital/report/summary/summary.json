@@ -19,13 +19,21 @@
    "label": "To date",
    "mandatory": 1,
    "wildcard_filter": 0
+  },
+  {
+   "fieldname": "receptionist",
+   "fieldtype": "Link",
+   "label": "Receptionist",
+   "mandatory": 0,
+   "options": "Receptionist",
+   "wildcard_filter": 0
   }
  ],
  "idx": 0,
  "is_standard": "Yes",
  "letter_head": "",
  "letterhead": null,
- "modified": "2025-02-12 20:16:59.698209",
+ "modified": "2025-03-12 00:18:37.531448",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Summary",

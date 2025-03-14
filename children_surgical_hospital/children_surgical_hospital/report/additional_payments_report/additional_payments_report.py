@@ -7,7 +7,7 @@ def execute(filters=None):
     # Define columns
     columns = [
         {"label": "Payment For", "fieldname": "payment", "fieldtype": "Data", "width": 150},
-        {"label": "Patient ID", "fieldname": "patient_id", "fieldtype": "Data", "width": 120},
+        {"label": "Medical Record Number (MR)", "fieldname": "patient_id", "fieldtype": "Data", "width": 120},
         {"label": "Patient Name", "fieldname": "patient_name", "fieldtype": "Data", "width": 200},
         {"label": "Age", "fieldname": "age", "fieldtype": "Int", "width": 100},
         {"label": "Reason", "fieldname": "reason", "fieldtype": "Data", "width": 200},

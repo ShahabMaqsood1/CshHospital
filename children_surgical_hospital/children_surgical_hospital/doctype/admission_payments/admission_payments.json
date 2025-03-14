@@ -7,12 +7,14 @@
  "engine": "InnoDB",
  "field_order": [
   "date",
+  "total_payment_amount",
   "payment_amount",
   "remarks"
  ],
  "fields": [
   {
    "allow_on_submit": 1,
+   "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
    "in_list_view": 1,
@@ -23,7 +25,7 @@
    "fieldname": "payment_amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Payment Amount"
+   "label": "Paid Payment Amount"
   },
   {
    "allow_on_submit": 1,
@@ -31,12 +33,19 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Remarks"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "total_payment_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Payment Amount"
   }
  ],
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2025-02-06 23:17:37.807459",
+ "modified": "2025-03-05 01:50:24.697379",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Admission Payments",

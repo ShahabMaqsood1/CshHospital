@@ -1,0 +1,61 @@
+{
+ "charts": [
+  {
+   "chart_name": "Expense Chart",
+   "label": "Expense Chart"
+  }
+ ],
+ "content": "[{\"id\":\"gcGNEnNGb3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Expenses Count\",\"col\":6}},{\"id\":\"Z8bGFBOlMe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create New Expense\",\"col\":7}},{\"id\":\"aL36zwp3Lk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Report\",\"col\":5}},{\"id\":\"Ufu8G9jEUN\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Expense Chart\",\"col\":8}}]",
+ "creation": "2025-02-12 23:04:21.468885",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "shortcut",
+ "idx": 0,
+ "indicator_color": "",
+ "is_hidden": 0,
+ "label": "Hospital Expense",
+ "links": [],
+ "modified": "2025-03-02 14:45:06.480373",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "Hospital Expense",
+ "number_cards": [
+  {
+   "label": "Expenses Count",
+   "number_card_name": "Expenses"
+  }
+ ],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Receptionist"
+  }
+ ],
+ "sequence_id": 8.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Create New Expense",
+   "type": "URL",
+   "url": "https://www.childrensurgicalhospital.org/app/expenses/new-expenses-bglmabpzxa"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Expense Report",
+   "type": "URL",
+   "url": "https://www.childrensurgicalhospital.org/app/query-report/Expenses%20Report"
+  }
+ ],
+ "title": "Hospital Expense"
+}

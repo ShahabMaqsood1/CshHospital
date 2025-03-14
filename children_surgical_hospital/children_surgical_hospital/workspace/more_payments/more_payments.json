@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "More Payments",
  "links": [],
- "modified": "2025-02-12 23:05:32.251227",
+ "modified": "2025-03-02 14:45:06.309514",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "More Payments",
@@ -41,7 +41,7 @@
   }
  ],
  "owner": "Administrator",
- "parent_page": "Accounting",
+ "parent_page": "",
  "public": 1,
  "quick_lists": [
   {
@@ -58,21 +58,21 @@
    "role": "Receptionist"
   }
  ],
- "sequence_id": 6.0,
+ "sequence_id": 5.0,
  "shortcuts": [
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "New Payment",
    "type": "URL",
-   "url": "http://209.38.149.177:8080/app/additional-payments/new-additional-payments-kesljebeue"
+   "url": "https://www.childrensurgicalhospital.org/app/additional-payments/new-additional-payments-tfqttxnlqh"
   },
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "Additional Payments Report",
    "type": "URL",
-   "url": "http://209.38.149.177:8080/app/query-report/Additional%20Payments%20Report"
+   "url": "https://www.childrensurgicalhospital.org/app/query-report/Additional%20Payments%20Report"
   }
  ],
  "title": "More Payments"

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "naming_series:",
+ "autoname": "format:{doctor_initials}{DD}{MM}{YYYY}-{appointment_number}",
  "creation": "2024-12-12 16:06:48.156546",
  "default_view": "List",
  "doctype": "DocType",
@@ -10,36 +10,41 @@
  "field_order": [
   "section_break_exad",
   "column_break_duoa",
-  "naming_series",
-  "patient_name",
-  "weight",
-  "phone_number",
-  "column_break_qjqo",
   "patient_id",
-  "age",
+  "patient_name",
   "gender",
+  "phone_number",
+  "age",
+  "column_break_qjqo",
+  "appointment_number",
+  "father_name",
+  "weight",
+  "cnic",
   "email",
+  "section_break_lymc",
+  "years",
+  "column_break_rfeu",
+  "months",
+  "column_break_udkt",
+  "days",
+  "column_break_uwqy",
+  "birth_date",
   "section_break_osut",
   "payment",
   "discount",
   "column_break_csmi",
-  "status",
   "doctor_id",
+  "status",
   "section_break_ddho",
   "appointment_date",
   "receptionist",
+  "doctor_initials",
   "column_break_vjzr",
   "appointment_time",
   "remaining_total",
   "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "naming_series",
-   "fieldtype": "Select",
-   "label": "Series",
-   "options": "CSH.-.DD.-.MM.-.YY.-.###"
-  },
   {
    "allow_on_submit": 1,
    "fieldname": "payment",
@@ -61,7 +66,7 @@
    "fieldname": "patient_id",
    "fieldtype": "Link",
    "in_list_view": 1,
-   "label": "Patient_Id",
+   "label": "Medical Record Number (MR)",
    "options": "Patient Record",
    "reqd": 1
   },
@@ -78,14 +83,14 @@
    "fieldname": "age",
    "fieldtype": "Data",
    "label": "Age",
+   "precision": "1",
    "reqd": 1
   },
   {
    "fetch_from": "patient_id.weight",
    "fieldname": "weight",
    "fieldtype": "Float",
-   "label": "Weight",
-   "reqd": 1
+   "label": "Weight"
   },
   {
    "fetch_from": "patient_id.contact_number",
@@ -96,7 +101,7 @@
   {
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Patient_Email",
+   "label": "Patient Email",
    "options": "Email"
   },
   {
@@ -104,6 +109,7 @@
    "fieldtype": "Section Break"
   },
   {
+   "allow_on_submit": 1,
    "default": "Today",
    "fieldname": "appointment_date",
    "fieldtype": "Date",
@@ -112,6 +118,7 @@
    "reqd": 1
   },
   {
+   "allow_on_submit": 1,
    "default": "Now",
    "fieldname": "appointment_time",
    "fieldtype": "Time",
@@ -192,17 +199,79 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "appointment_number",
+   "fieldtype": "Data",
+   "label": "Appointment Number"
+  },
+  {
+   "fieldname": "doctor_initials",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Doctor Initials",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "patient_id.father_name",
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Father Name"
+  },
+  {
+   "fetch_from": "patient_id.cnic",
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC / Passport No."
+  },
+  {
+   "fieldname": "section_break_lymc",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "years",
+   "fieldtype": "Data",
+   "label": "Years"
+  },
+  {
+   "fieldname": "column_break_rfeu",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "months",
+   "fieldtype": "Data",
+   "label": "Months"
+  },
+  {
+   "fieldname": "column_break_udkt",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "days",
+   "fieldtype": "Data",
+   "label": "Days"
+  },
+  {
+   "fieldname": "column_break_uwqy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "birth_date",
+   "fieldtype": "Data",
+   "label": "Birth Date"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 20:27:09.015866",
+ "modified": "2025-03-02 20:53:03.526228",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Patient Appointment",
- "naming_rule": "By \"Naming Series\" field",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

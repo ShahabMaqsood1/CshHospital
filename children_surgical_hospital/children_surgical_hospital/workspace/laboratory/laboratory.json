@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "Laboratory",
  "links": [],
- "modified": "2025-02-12 23:02:48.392053",
+ "modified": "2025-03-02 14:45:06.630789",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Laboratory",
@@ -50,22 +50,29 @@
    "quick_list_filter": "[]"
   }
  ],
- "roles": [],
- "sequence_id": 8.0,
- "shortcuts": [
+ "roles": [
   {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "View Report",
-   "type": "URL",
-   "url": "http://209.38.149.177:8080/app/query-report/Lab%20Reports"
+   "role": "System Manager"
   },
+  {
+   "role": "Receptionist"
+  }
+ ],
+ "sequence_id": 10.0,
+ "shortcuts": [
   {
    "color": "Grey",
    "doc_view": "List",
    "label": "Create New",
    "type": "URL",
-   "url": "http://209.38.149.177:8080/app/lab-reports/new-lab-reports-xjaiyaxvbd"
+   "url": "https://www.childrensurgicalhospital.org/app/lab-reports/new-lab-reports-utyzwjvmcr"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "View Report",
+   "type": "URL",
+   "url": "https://www.childrensurgicalhospital.org/app/query-report/Lab%20Reports"
   }
  ],
  "title": "Laboratory"

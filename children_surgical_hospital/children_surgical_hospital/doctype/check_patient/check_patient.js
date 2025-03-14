@@ -7,102 +7,6 @@
 // 	},
 // });
 frappe.ui.form.on('Check Patient', {
-    after_save: function(frm) {
-        // Log the patient_id to make sure it's correct
-        console.log("Patient ID from Check Patient form: " + frm.doc.patient_id);
-
-        // Fetch the Patient Record based on the patient_id
-        frappe.db.get_value('Patient Record', { 'name': frm.doc.patient_id }, 'name')
-            .then(r => {
-                if (r.message && r.message.name) {
-                    let patient_record_name = r.message.name;
-                    console.log("Patient Record found: " + patient_record_name);
-
-                    // Fetch the Patient Record document
-                    frappe.db.get_doc('Patient Record', patient_record_name)
-                        .then(patient_record_doc => {
-                            console.log("Patient Record document details: ", patient_record_doc);
-
-                            // Loop through the report table in Check Patient
-                            frm.doc.report.forEach(report => {
-                                // Check if the record already exists in the medical_history table
-                                let record_exists = patient_record_doc.medical_history.some(history => 
-                                    history.visit_date === report.visit_date && 
-                                    history.diagnosis === report.diagnosis && 
-                                    history.prescription === report.prescription  && 
-                                    history.medical_examination_findings === report.medical_examination_findings && 
-                                    history.presenting_complaints === report.presenting_complaints && 
-                                    history.duration === report.duration && 
-                                    history.advice === report.advice &&
-                                    history.quantity === report.quantity &&
-                                    history.note === report.note
-                                );
-
-                                if (!record_exists) {
-                                    // Append data from report table to medical_history table in Patient Record
-                                    patient_record_doc.medical_history.push({
-                                        "visit_date": report.visit_date,
-                                        "diagnosis": report.diagnosis,
-                                        "prescription": report.prescription,
-                                        "medical_examination_findings": report.medical_examination_findings,
-                                        "presenting_complaints": report.presenting_complaints,
-                                        "duration": report.duration,
-                                        "advice": report.advice,
-                                        "Additional Instructions": report.note,
-                                        "quantity": report.quantity,
-                                        "doctor_id": frm.doc.doctor_name, // Store doctor name
-                                        "patient_id": frm.doc.patient_id // Store patient ID
-                                    });
-                                }
-                            });
-
-                            // Loop through the lab_tests table in Check Patient
-                            frm.doc.lab_tests.forEach(lab_test => {
-                                // Check if the lab test already exists
-                                let test_exists = patient_record_doc.lab_tests.some(test => 
-                                    test.lab_tests === lab_test.lab_tests
-                                );
-
-                                if (!test_exists) {
-                                    // Append data from lab_tests table to lab_tests table in Patient Record
-                                    patient_record_doc.lab_tests.push({
-                                        "lab_tests": lab_test.lab_tests // Store lab test
-                                    });
-                                }
-                            });
-
-                            // Save the updated Patient Record
-                            frappe.call({
-                                method: "frappe.client.save",
-                                args: {
-                                    doc: patient_record_doc
-                                },
-                                callback: function(response) {
-                                    frappe.msgprint({
-                                        title: _('Success'),
-                                        indicator: 'green',
-                                        message: __('Patient Record updated successfully.')
-                                    });
-                                },
-                                error: function(error) {
-                                    frappe.msgprint({
-                                        title: __('Error'),
-                                        indicator: 'red',
-                                        message: __('Failed to update the Patient Record.')
-                                    });
-                                }
-                            });
-                        });
-                } else {
-                    // If no record found, log it
-                    console.log("No Patient Record found for Patient ID: " + frm.doc.patient_id);
-                    frappe.msgprint("No Patient Record found for the given Patient ID.");
-                }
-            });
-    }
-});
-
-frappe.ui.form.on('Check Patient', {
     setup: function(frm) {
         frm.set_query("appointment_no", function() {
             return {
@@ -173,3 +77,52 @@ frappe.ui.form.on('Check Patient', {
         }
     }
 });
+frappe.ui.form.on('Check Patient', {
+    refresh: function(frm) {
+        ensure_new_row(frm, "report", "Presenting Complaints Table", "presenting_complaints");
+        ensure_new_row(frm, "report1", "Medical Examination Findings Table", "medical_examination_findings");
+        ensure_new_row(frm, "report2", "Patient Report", "prescription");
+        ensure_new_row(frm, "lab_tests", "lab tests", "lab_tests");
+    }
+});
+
+frappe.ui.form.on('Presenting Complaints Table', {
+    presenting_complaints: function(frm, cdt, cdn) {
+        ensure_new_row(frm, "report", "Presenting Complaints Table", "presenting_complaints");
+    }
+});
+
+frappe.ui.form.on('Medical Examination Findings Table', {
+    medical_examination_findings: function(frm, cdt, cdn) {
+        ensure_new_row(frm, "report1", "Medical Examination Findings Table", "medical_examination_findings");
+    }
+});
+
+frappe.ui.form.on('Patient Report', {
+    prescription: function(frm, cdt, cdn) {
+        ensure_new_row(frm, "report2", "Patient Report", "prescription");
+    }
+});
+
+frappe.ui.form.on('lab tests', {
+    lab_tests: function(frm, cdt, cdn) {
+        ensure_new_row(frm, "lab_tests", "lab tests", "lab_tests");
+    }
+});
+
+function ensure_new_row(frm, parent_fieldname, child_doctype, trigger_field) {
+    let child_table = frm.doc[parent_fieldname] || [];
+
+    // If no rows exist, add the first row
+    if (child_table.length === 0) {
+        frm.add_child(parent_fieldname);
+    }
+
+    // If last row has data, add a new row
+    let last_row = child_table[child_table.length - 1];
+    if (last_row && last_row[trigger_field]) {
+        frm.add_child(parent_fieldname);
+    }
+
+    frm.refresh_field(parent_fieldname);
+}

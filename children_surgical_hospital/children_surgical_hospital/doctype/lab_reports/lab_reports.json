@@ -1,35 +1,42 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{patient_id}-{MM}-{DD}",
+ "autoname": "format:{CSHLAB}-{MM}-{YY}-{#####}",
  "creation": "2025-02-17 18:55:44.145988",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "check_patient_no",
+  "date_of_report",
   "patient_id",
   "patient_name",
+  "age",
+  "weight",
+  "email",
+  "doctor",
+  "collection_center",
+  "collection_area",
+  "receptionist",
+  "column_break_cbin",
+  "time",
+  "phone_number",
+  "father_name",
+  "gender",
+  "cnic",
+  "address",
+  "section_break_sdva",
   "lab_tests",
   "amended_from",
-  "date_of_report",
-  "receptionist",
-  "amended_from"
+  "discount"
  ],
  "fields": [
   {
-   "fieldname": "check_patient_no",
-   "fieldtype": "Link",
-   "label": "Appointment No.",
-   "options": "Check Patient"
-  },
-  {
    "fetch_from": "check_patient_no.patient_id",
    "fieldname": "patient_id",
-   "fieldtype": "Data",
-   "label": "Patient ID"
+   "fieldtype": "Link",
+   "label": "Medical Record Number (MR)",
+   "options": "Patient Record"
   },
   {
-   "fetch_from": "check_patient_no.patient_name",
    "fieldname": "patient_name",
    "fieldtype": "Data",
    "label": "Patient Name"
@@ -40,16 +47,6 @@
    "fieldtype": "Table",
    "label": "Lab tests",
    "options": "lab tests"
-  },
-  {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Lab Reports",
-   "print_hide": 1,
-   "read_only": 1,
-   "search_index": 1
   },
   {
    "fieldname": "receptionist",
@@ -65,6 +62,29 @@
    "read_only": 1
   },
   {
+   "fieldname": "column_break_cbin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_sdva",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Data",
+   "label": "Age"
+  },
+  {
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "cnic",
+   "fieldtype": "Data",
+   "label": "CNIC"
+  },
+  {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
@@ -73,12 +93,70 @@
    "print_hide": 1,
    "read_only": 1,
    "search_index": 1
+  },
+  {
+   "default": "DFL-102-CSH",
+   "fieldname": "collection_center",
+   "fieldtype": "Data",
+   "label": "Collection Center",
+   "read_only": 1
+  },
+  {
+   "fieldname": "discount",
+   "fieldtype": "Currency",
+   "label": "Discount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Data",
+   "label": "Gender",
+   "options": "\nMale\nFemale\nNew Born\nOthers"
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Collection Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "doctor",
+   "fieldtype": "Select",
+   "label": "Doctor",
+   "options": "Self\nDr. Tahir Mehmood Butt\nDr. Abdul Rehman\nDr. Rida\nDr. Asba Anwar\nDr. Maryam\nDr. Ali Imran\nDr. Sajid Ali\nDr. Hammad Masood"
+  },
+  {
+   "fieldname": "collection_area",
+   "fieldtype": "Select",
+   "label": "Collection Area",
+   "options": "\nO.P.D\nEmergency\nMale Ward\nFemale Ward\nI.C.U\nRoom\nO.T"
+  },
+  {
+   "fieldname": "weight",
+   "fieldtype": "Float",
+   "label": "Weight"
+  },
+  {
+   "fieldname": "phone_number",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Patient Email"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-17 18:55:44.145988",
+ "modified": "2025-03-11 23:25:51.940058",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Lab Reports",
