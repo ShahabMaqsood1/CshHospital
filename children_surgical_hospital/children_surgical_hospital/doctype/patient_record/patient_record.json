@@ -177,9 +177,13 @@
   {
    "link_doctype": "Additional Payments",
    "link_fieldname": "patient_id"
+  },
+  {
+   "link_doctype": "Discharge Bill",
+   "link_fieldname": "patient_id"
   }
  ],
- "modified": "2025-03-11 23:15:30.306346",
+ "modified": "2025-04-03 20:55:01.659038",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Patient Record",

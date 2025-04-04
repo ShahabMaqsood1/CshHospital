@@ -16,6 +16,18 @@ frappe.query_reports["Additional Payments report"] = {
             "fieldtype": "Date",
             "default": frappe.datetime.get_today(),
             "reqd": 1
+        },
+        {
+            "fieldname": "from_time",
+            "label": __("From Time"),
+            "fieldtype": "Time",
+            "reqd": 0
+        },
+        {
+            "fieldname": "to_time",
+            "label": __("To Time"),
+            "fieldtype": "Time",
+            "reqd": 0
         }
 	]
 };

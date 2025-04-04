@@ -27,15 +27,17 @@
    "search_index": 1
   },
   {
+   "allow_in_quick_entry": 1,
    "fieldname": "presenting_complaints",
    "fieldtype": "Data",
+   "in_list_view": 1,
    "label": "Presenting Complaints"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-02-09 15:22:32.803041",
+ "modified": "2025-03-16 11:23:43.843597",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Presenting Complaints",
@@ -51,6 +53,19 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Doctor",
    "share": 1,
    "submit": 1,
    "write": 1

@@ -6,13 +6,23 @@ def execute(filters=None):
 
     # Define columns
     columns = [
-        {"label": "Medical Record Number (MR)", "fieldname": "patient_id", "fieldtype": "Data", "width": 150},
+        {"label": "Medical Record Number (MR)", "fieldname": "patient_id", "fieldtype": "Data", "width": 120},
         {"label": "Patient Name", "fieldname": "patient_name", "fieldtype": "Data", "width": 200},
+        {"label": "Father Name", "fieldname": "father_name", "fieldtype": "Data", "width": 200},
+        {"label": "Gender", "fieldname": "gender", "fieldtype": "Data", "width": 200},
+        {"label": "Doctor", "fieldname": "doctor", "fieldtype": "Data", "width": 200},
+        {"label": "Age", "fieldname": "age", "fieldtype": "Data", "width": 100},
+        {"label": "Weight", "fieldname": "weight", "fieldtype": "Data", "width": 100},
+        {"label": "Phone No", "fieldname": "phone_number", "fieldtype": "Data", "width": 100},
+        {"label": "Status", "fieldname": "status", "fieldtype": "Data", "width": 120},
+        {"label": "CNIC", "fieldname": "cnic", "fieldtype": "Data", "width": 120},
+        {"label": "Email", "fieldname": "email", "fieldtype": "Data", "width": 120},
         {"label": "Lab Test", "fieldname": "lab_tests", "fieldtype": "Data", "width": 200},
         {"label": "Results", "fieldname": "upload_results", "fieldtype": "Attach", "width": 150},
         {"label": "Payment Amount", "fieldname": "payment_amount", "fieldtype": "Currency", "width": 120},
         {"label": "Receptionist", "fieldname": "receptionist", "fieldtype": "Data", "width": 150},
         {"label": "Date of Report", "fieldname": "date_of_report", "fieldtype": "Date", "width": 120},
+        {"label": "Collection time", "fieldname": "time", "fieldtype": "Time", "width": 120},
     ]
 
     # Base SQL query
@@ -20,10 +30,19 @@ def execute(filters=None):
         SELECT  
             lr.patient_id AS patient_id,
             lr.patient_name AS patient_name,
+            lr.father_name AS father_name,
+            lr.gender AS gender,
+            lr.doctor AS doctor,
+            lr.age AS age,
+            lr.weight AS weight,
+            lr.phone_number AS phone_number,
+            lr.cnic AS cnic,
+            lr.email AS email,
             lri.lab_tests AS lab_tests,
             lri.upload_results AS upload_results,
             lri.payment_amount AS payment_amount,
             lr.receptionist AS receptionist,
+            lr.time AS time,
             lr.date_of_report AS date_of_report
         FROM 
             `tabLab Reports` lr
@@ -58,10 +77,16 @@ def execute(filters=None):
         conditions += " AND lr.receptionist = %s"
         values.append(filters.get('receptionist'))
 
+    # Add filter for Time Range if provided
+    if filters.get('from_time') and filters.get('to_time'):
+        conditions += " AND lr.time BETWEEN %s AND %s"
+        values.append(filters.get('from_time'))
+        values.append(filters.get('to_time'))
+
     # Complete query with conditions
     query = base_query + conditions + """
         ORDER BY 
-            lr.date_of_report, lr.patient_name
+            lr.date_of_report, lr.time, lr.patient_name
     """
 
     # Execute the query

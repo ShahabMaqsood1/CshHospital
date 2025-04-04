@@ -1,7 +1,7 @@
 // Copyright (c) 2025, Shahab Maqsood and contributors
 // For license information, please see license.txt
 
-frappe.query_reports["Expenses report"] = {
+frappe.query_reports["Expenses Report"] = {
 	"filters": [
 		{
             "fieldname": "from_date",
@@ -18,7 +18,19 @@ frappe.query_reports["Expenses report"] = {
             "reqd": 1
         },
         {
-            "fieldname": "name1",
+            "fieldname": "from_time",
+            "label": __("From Time"),
+            "fieldtype": "Time",
+            "reqd": 0
+        },
+        {
+            "fieldname": "to_time",
+            "label": __("To Time"),
+            "fieldtype": "Time",
+            "reqd": 0
+        },
+        {
+            "fieldname": "name",
             "label": __("Name"),
             "fieldtype": "Data",
             "reqd": 0

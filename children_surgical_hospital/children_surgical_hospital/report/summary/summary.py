@@ -18,10 +18,16 @@ def execute(filters=None):
         receptionist_filter = "AND receptionist = %s"
         receptionist_param = [filters.get('receptionist')]
 
-    # Function to fetch and append data safely
+    time_filter = ""
+    time_params = []
+
+    if filters.get('from_time') and filters.get('to_time'):
+        time_filter = "AND TIME(creation) BETWEEN %s AND %s"
+        time_params = [filters.get('from_time'), filters.get('to_time')]
+
     def fetch_and_append(query, params, category_name):
         data = frappe.db.sql(query, params, as_dict=True)
-        if data and data[0]:  # Ensure the query returns valid data
+        if data and data[0]:
             report_data.append({
                 "category": category_name,
                 "total_count": data[0].get("total_count", 0) or 0,
@@ -34,65 +40,75 @@ def execute(filters=None):
                 "total_amount": 0
             })
 
-    # List of revenue categories
     revenue_categories = [
-        ("Emergency Cases", """
+        ("Emergency Cases", f"""
             SELECT COUNT(*) AS total_count, COALESCE(SUM(ap.payment), 0) AS total_amount
             FROM `tabEmergency` na
             LEFT JOIN `tabEmergency Payment` ap ON na.name = ap.parent
-            WHERE na.docstatus IN (0, 1) AND na.date BETWEEN %s AND %s {receptionist_filter}
+            WHERE na.docstatus IN (0, 1) 
+                AND na.date BETWEEN %s AND %s {receptionist_filter} {time_filter}
         """),
-        ("Patient Appointments", """
+        ("Patient Appointments", f"""
             SELECT COUNT(*) AS total_count, COALESCE(SUM(remaining_total), 0) AS total_amount
             FROM `tabPatient Appointment`
-            WHERE docstatus IN (0, 1) AND appointment_date BETWEEN %s AND %s {receptionist_filter}
+            WHERE docstatus IN (0, 1) 
+                AND appointment_date BETWEEN %s AND %s {receptionist_filter} {time_filter}
         """),
-        ("New Admissions", """
+        ("New Admissions", f"""
             SELECT COUNT(*) AS total_count, COALESCE(SUM(ap.payment_amount), 0) AS total_amount
             FROM `tabNew Admission` na
             LEFT JOIN `tabAdmission Payments` ap ON na.name = ap.parent
-            WHERE na.docstatus IN (0, 1) AND na.date BETWEEN %s AND %s {receptionist_filter}
+            WHERE na.docstatus IN (0, 1) 
+                AND na.date BETWEEN %s AND %s {receptionist_filter} {time_filter}
         """),
-        ("Additional Payments", """
+        ("Discharge Bill", f"""
+            SELECT COUNT(*) AS total_count, COALESCE(SUM(grand_total), 0) AS total_amount
+            FROM `tabDischarge Bill`
+            WHERE docstatus IN (0, 1)
+                AND date BETWEEN %s AND %s {receptionist_filter} {time_filter}
+        """),
+        ("Additional Payments", f"""
             SELECT COUNT(*) AS total_count, COALESCE(SUM(payment_amount), 0) AS total_amount
             FROM `tabAdditional Payments`
-            WHERE docstatus IN (0, 1) AND date BETWEEN %s AND %s {receptionist_filter}
+            WHERE docstatus IN (0, 1) 
+                AND date BETWEEN %s AND %s {receptionist_filter} {time_filter}
         """),
-        ("Lab Reports", """
+        ("Lab Reports", f"""
             SELECT COUNT(DISTINCT parent) AS total_count, COALESCE(SUM(payment_amount), 0) AS total_amount
             FROM `tablab tests`
-            WHERE parenttype = 'Lab Reports' AND docstatus IN (0, 1) AND parent IN (
-                SELECT name FROM `tabLab Reports` 
-                WHERE docstatus IN (0, 1) AND date_of_report BETWEEN %s AND %s {receptionist_filter}
-            )
-        """)
+            WHERE parenttype = 'Lab Reports' 
+                AND docstatus IN (0, 1) 
+                AND parent IN (
+                    SELECT name FROM `tabLab Reports` 
+                    WHERE docstatus IN (0, 1) 
+                        AND date_of_report BETWEEN %s AND %s {receptionist_filter} {time_filter}
+                )
+        """),
     ]
 
     total_income = 0
 
     for category, query in revenue_categories:
-        fetch_and_append(query.format(receptionist_filter=receptionist_filter), 
-                         (filters.get('from_date'), filters.get('to_date'), *receptionist_param), category)
+        fetch_and_append(query.format(receptionist_filter=receptionist_filter, time_filter=time_filter), 
+                         (filters.get('from_date'), filters.get('to_date'), *receptionist_param, *time_params), category)
         total_income += report_data[-1]["total_amount"]
 
-    # Add Total Income
     report_data.append({
         "category": "<b>Total Income</b>",
         "total_count": "",
         "total_amount": total_income
     })
 
-    # Expenses
     expenses_query = f"""
         SELECT COUNT(*) AS total_count, COALESCE(SUM(payment_amount), 0) AS total_amount
         FROM `tabExpenses`
-        WHERE docstatus IN (0, 1) AND date BETWEEN %s AND %s {receptionist_filter}
+        WHERE docstatus IN (0, 1) 
+            AND date BETWEEN %s AND %s {receptionist_filter} {time_filter}
     """
-    fetch_and_append(expenses_query, (filters.get('from_date'), filters.get('to_date'), *receptionist_param), "Expenses")
+    fetch_and_append(expenses_query.format(receptionist_filter=receptionist_filter, time_filter=time_filter), 
+                     (filters.get('from_date'), filters.get('to_date'), *receptionist_param, *time_params), "Expenses")
 
     total_expenses = report_data[-1]["total_amount"]
-
-    # Net Total (Total Income - Expenses)
     net_total = total_income - total_expenses
 
     report_data.append({
@@ -100,8 +116,5 @@ def execute(filters=None):
         "total_count": "",
         "total_amount": net_total
     })
-
-    # Debugging Output
-    print("Generated Report Data:", report_data)
 
     return columns, report_data

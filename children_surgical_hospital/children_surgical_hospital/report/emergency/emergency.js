@@ -1,7 +1,7 @@
 // Copyright (c) 2025, Shahab Maqsood and contributors
 // For license information, please see license.txt
 
-frappe.query_reports["Emergency Report"] = {
+frappe.query_reports["Emergency"] = {
     "filters": [
         {
             "fieldname": "from_date",
@@ -14,6 +14,18 @@ frappe.query_reports["Emergency Report"] = {
             "label": __("To Date"),
             "fieldtype": "Date",
             "reqd": 1
+        },
+        {
+            "fieldname": "from_time",
+            "label": __("From Time"),
+            "fieldtype": "Time",
+            "reqd": 0
+        },
+        {
+            "fieldname": "to_time",
+            "label": __("To Time"),
+            "fieldtype": "Time",
+            "reqd": 0
         },
         {
             "fieldname": "patient_id",

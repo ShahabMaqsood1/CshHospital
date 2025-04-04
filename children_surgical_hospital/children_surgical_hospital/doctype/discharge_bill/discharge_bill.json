@@ -7,13 +7,18 @@
  "engine": "InnoDB",
  "field_order": [
   "admission_no",
+  "date",
+  "column_break_zpif",
+  "patient_id",
+  "section_break_xlid",
   "date_of_admission",
+  "time_of_admission",
   "no_of_days",
   "patient_name",
   "consultant_name",
   "column_break_osfe",
-  "patient_id",
   "date_of_discharge",
+  "time_of_discharge",
   "admit_in",
   "on_oxygen_days",
   "section_break_twhf",
@@ -45,17 +50,13 @@
   "section_break_asgo",
   "total",
   "discount",
+  "receptionist",
   "column_break_oiit",
   "advance",
-  "grand_total"
+  "grand_total",
+  "amended_from"
  ],
  "fields": [
-  {
-   "fieldname": "admission_no",
-   "fieldtype": "Link",
-   "label": "Admission No.",
-   "options": "New Admission"
-  },
   {
    "fetch_from": "admission_no.patient_id",
    "fieldname": "patient_id",
@@ -103,6 +104,7 @@
    "fieldtype": "Column Break"
   },
   {
+   "allow_on_submit": 1,
    "fetch_from": "admission_no.date_of_discharge",
    "fieldname": "date_of_discharge",
    "fieldtype": "Data",
@@ -235,7 +237,6 @@
    "label": "Dr. Abid Hussain Visiting Fee"
   },
   {
-   "fetch_from": "admission_no.patient_name",
    "fieldname": "no_of_days",
    "fieldtype": "Data",
    "label": "No of days"
@@ -263,11 +264,62 @@
   {
    "fieldname": "column_break_yjjk",
    "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_xlid",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "admission_no",
+   "fieldtype": "Link",
+   "label": "Admission Number",
+   "options": "New Admission"
+  },
+  {
+   "fieldname": "column_break_zpif",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Discharge Bill",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "receptionist",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Receptionist"
+  },
+  {
+   "fetch_from": "admission_no.time_of_admission",
+   "fieldname": "time_of_admission",
+   "fieldtype": "Time",
+   "label": "Time of Admission"
+  },
+  {
+   "fetch_from": "admission_no.time_of_discharge",
+   "fieldname": "time_of_discharge",
+   "fieldtype": "Time",
+   "label": "Time of Discharge"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "date",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
+ "is_submittable": 1,
  "links": [],
- "modified": "2025-02-23 01:07:52.342902",
+ "modified": "2025-04-04 19:35:57.272960",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Discharge Bill",
@@ -283,6 +335,18 @@
    "read": 1,
    "report": 1,
    "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
    "share": 1,
    "write": 1
   }

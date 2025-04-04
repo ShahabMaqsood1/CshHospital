@@ -38,6 +38,18 @@ frappe.query_reports["New Admissions Report"] = {
             "label": __("Operation"),
             "fieldtype": "Data",
             "reqd": 0
+        },
+        {
+            "fieldname": "from_time",
+            "label": __("From Time"),
+            "fieldtype": "Time",
+            "reqd": 0
+        },
+        {
+            "fieldname": "to_time",
+            "label": __("To Time"),
+            "fieldtype": "Time",
+            "reqd": 0
         }
 	]
 };

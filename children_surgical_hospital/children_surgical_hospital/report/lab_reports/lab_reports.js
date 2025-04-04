@@ -16,6 +16,18 @@ frappe.query_reports["Lab Reports"] = {
             "reqd": 1
         },
         {
+            "fieldname": "from_time",
+            "label": __("From Time"),
+            "fieldtype": "Time",
+            "reqd": 0
+        },
+        {
+            "fieldname": "to_time",
+            "label": __("To Time"),
+            "fieldtype": "Time",
+            "reqd": 0
+        },
+        {
             "fieldname": "patient_id",
             "label": __("Medical Record Number (MR)"),
             "fieldtype": "Data",

@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "More Payments",
  "links": [],
- "modified": "2025-03-02 14:45:06.309514",
+ "modified": "2025-03-16 10:49:58.182029",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "More Payments",
@@ -58,7 +58,7 @@
    "role": "Receptionist"
   }
  ],
- "sequence_id": 5.0,
+ "sequence_id": 6.0,
  "shortcuts": [
   {
    "color": "Grey",

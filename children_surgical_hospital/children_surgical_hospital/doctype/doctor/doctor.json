@@ -30,9 +30,8 @@
    "label": "Email"
   },
   {
-   "default": "+92-",
    "fieldname": "contact_number",
-   "fieldtype": "Phone",
+   "fieldtype": "Data",
    "label": "Contact Number"
   },
   {
@@ -67,7 +66,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-19 20:20:41.368332",
+ "modified": "2025-03-15 21:12:42.383930",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Doctor",

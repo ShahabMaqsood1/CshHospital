@@ -13,11 +13,11 @@ def execute(filters=None):
         {"label": "Operation Doctor ID", "fieldname": "operation_doctor_id", "fieldtype": "Data", "width": 150},
         {"label": "Anesthesia Doctor", "fieldname": "anesthesia_doctor", "fieldtype": "Data", "width": 150},
         {"label": "Payment Date", "fieldname": "payment_date", "fieldtype": "Date", "width": 120},
-	{"label": "Total Payment", "fieldname": "total_payment_amount", "fieldtype": "Date", "width": 120},
+	{"label": "Total Payment", "fieldname": "total_payment_amount", "fieldtype": "Currency", "width": 120},
         {"label": "Amount Paid", "fieldname": "payment_amount", "fieldtype": "Currency", "width": 120},
         {"label": "Due Amount", "fieldname": "payment_remarks", "fieldtype": "Data", "width": 250},
         {"label": "Date of Admission", "fieldname": "date", "fieldtype": "Date", "width": 120},
-        {"label": "Time", "fieldname": "time_of_admission", "fieldtype": "Time", "width": 120},
+        {"label": "Time of Admission", "fieldname": "time_of_admission", "fieldtype": "Time", "width": 120},
         {"label": "Date of Discharge", "fieldname": "date_of_discharge", "fieldtype": "Date", "width": 120},
         {"label": "Time of Discharge", "fieldname": "time_of_discharge", "fieldtype": "Time", "width": 120},
     ]
@@ -33,7 +33,7 @@ def execute(filters=None):
             nao.anesthesia_doctor AS anesthesia_doctor,
             nap.date AS payment_date,
             nap.payment_amount AS payment_amount,
-	    nap.total_payment_amount AS total_payment_amount,
+            nap.total_payment_amount AS total_payment_amount,
             nap.remarks AS payment_remarks,
             na.date AS date,
             na.time_of_admission AS time_of_admission,
@@ -73,11 +73,17 @@ def execute(filters=None):
     if filters.get('operations'):
         conditions += " AND nao.operations = %s"
         values.append(filters.get('operations'))
+    
+    # Add time filter
+    if filters.get('from_time') and filters.get('to_time'):
+        conditions += " AND na.time_of_admission BETWEEN %s AND %s"
+        values.append(filters.get('from_time'))
+        values.append(filters.get('to_time'))
 
     # Complete query with conditions
     query = base_query + conditions + """
         ORDER BY 
-            na.date, na.patient_name
+            na.date, na.time_of_admission
     """
 
     # Execute the query

@@ -8,19 +8,22 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "emergency",
+  "column_break_vbof",
+  "patient_id",
+  "appointment_number",
   "section_break_exad",
   "column_break_duoa",
-  "patient_id",
   "patient_name",
   "gender",
   "phone_number",
+  "email",
   "age",
   "column_break_qjqo",
-  "appointment_number",
   "father_name",
   "weight",
   "cnic",
-  "email",
+  "address",
   "section_break_lymc",
   "years",
   "column_break_rfeu",
@@ -28,8 +31,9 @@
   "column_break_udkt",
   "days",
   "column_break_uwqy",
-  "birth_date",
+  "date_of_birth",
   "section_break_osut",
+  "nvf",
   "payment",
   "discount",
   "column_break_csmi",
@@ -47,6 +51,8 @@
  "fields": [
   {
    "allow_on_submit": 1,
+   "default": "0",
+   "depends_on": "eval: doc.nvf == 0",
    "fieldname": "payment",
    "fieldtype": "Float",
    "in_list_view": 1,
@@ -67,8 +73,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Medical Record Number (MR)",
-   "options": "Patient Record",
-   "reqd": 1
+   "options": "Patient Record"
   },
   {
    "fetch_from": "patient_id.patient_name",
@@ -115,6 +120,7 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Appointment Date",
+   "read_only": 1,
    "reqd": 1
   },
   {
@@ -124,13 +130,15 @@
    "fieldtype": "Time",
    "in_list_view": 1,
    "label": "Appointment Time",
+   "read_only": 1,
    "reqd": 1
   },
   {
    "fetch_from": "patient_id.gender",
    "fieldname": "gender",
-   "fieldtype": "Data",
+   "fieldtype": "Select",
    "label": "Gender",
+   "options": "\nMale\nFemale\nNew Born\nOthers",
    "reqd": 1
   },
   {
@@ -171,8 +179,7 @@
    "allow_on_submit": 1,
    "fieldname": "remaining_total",
    "fieldtype": "Data",
-   "label": "Remaining Total",
-   "read_only": 1
+   "label": "Remaining Total"
   },
   {
    "fieldname": "column_break_csmi",
@@ -258,16 +265,37 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "birth_date",
+   "default": "0",
+   "fieldname": "emergency",
+   "fieldtype": "Check",
+   "label": "Emergency"
+  },
+  {
+   "fieldname": "column_break_vbof",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address",
+   "fieldtype": "Small Text",
+   "label": "Address"
+  },
+  {
+   "fieldname": "date_of_birth",
    "fieldtype": "Data",
    "label": "Birth Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "nvf",
+   "fieldtype": "Check",
+   "label": "NVF"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-03-02 20:53:03.526228",
+ "modified": "2025-04-04 20:40:25.978118",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Patient Appointment",
@@ -284,6 +312,7 @@
    "report": 1,
    "role": "System Manager",
    "share": 1,
+   "submit": 1,
    "write": 1
   },
   {

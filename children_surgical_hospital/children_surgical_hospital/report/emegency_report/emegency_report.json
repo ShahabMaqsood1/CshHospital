@@ -42,12 +42,26 @@
    "mandatory": 0,
    "options": "",
    "wildcard_filter": 0
+  },
+  {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time",
+   "mandatory": 0,
+   "wildcard_filter": 0
   }
  ],
  "idx": 0,
  "is_standard": "Yes",
  "letterhead": null,
- "modified": "2025-02-18 22:45:03.514311",
+ "modified": "2025-03-18 00:24:54.191565",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Emegency Report",

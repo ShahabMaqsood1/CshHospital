@@ -21,6 +21,20 @@
    "wildcard_filter": 0
   },
   {
+   "fieldname": "from_time",
+   "fieldtype": "Time",
+   "label": "From Time",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
+   "fieldname": "to_time",
+   "fieldtype": "Time",
+   "label": "To Time",
+   "mandatory": 0,
+   "wildcard_filter": 0
+  },
+  {
    "fieldname": "patient_id",
    "fieldtype": "Link",
    "label": "Patient Id",
@@ -33,7 +47,7 @@
  "is_standard": "Yes",
  "letter_head": "",
  "letterhead": null,
- "modified": "2025-02-12 20:12:02.581199",
+ "modified": "2025-03-17 23:00:22.700266",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "New Admissions Report",

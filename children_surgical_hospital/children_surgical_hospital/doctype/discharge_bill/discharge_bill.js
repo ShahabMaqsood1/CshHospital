@@ -119,40 +119,33 @@
 //     }
 // });
 
-
-
-
-
 frappe.ui.form.on('Discharge Bill', {
     onload: function(frm) {
-        if (frm.doc.admission_no) {
-            frm.set_value('advance', 0); // Temporary default to prevent lag
+        frm.trigger('fetch_advance_payment');
+    },
 
-            frappe.call({
-                method: 'frappe.client.get',
-                args: {
-                    doctype: 'New Admission',
-                    name: frm.doc.admission_no
-                },
-                callback: function(response) {
-                    let admission = response.message;
-                    if (admission) {
-                        frm.set_value('date_of_admission', admission.date);
-                        frm.set_value('admit_in', admission.admission_in);
-                        frm.set_value('admission_fee', 500); // Default fee
+    admission_no: function(frm) {
+        frm.trigger('fetch_advance_payment');
+    },
 
-                        // Calculate total advance payments immediately
-                        let total_advance = admission.payments?.reduce((sum, row) => sum + (parseFloat(row.payment_amount) || 0), 0) || 0;
+    fetch_advance_payment: function(frm) {
+        if (!frm.doc.admission_no) return;
 
-                        frm.set_value('advance', total_advance);
-                        frm.refresh_field('advance'); // Ensure it updates immediately
+        frm.set_value('advance', 0); // Temporary default
 
-                        // Recalculate grand total after advance update
-                        frm.trigger('calculate_total');
-                    }
-                }
-            });
-        }
+        frappe.db.get_doc('New Admission', frm.doc.admission_no).then(admission => {
+            if (admission) {
+                frm.set_value('date_of_admission', admission.date);
+                frm.set_value('admit_in', admission.admission_in);
+                frm.set_value('admission_fee', 500); // Default fee
+
+                let total_advance = admission.payments?.reduce((sum, row) => sum + (parseFloat(row.payment_amount) || 0), 0) || 0;
+                frm.set_value('advance', total_advance);
+                frm.refresh_field('advance');
+
+                frm.trigger('calculate_total');
+            }
+        });
     },
 
     date_of_discharge: function(frm) {
@@ -177,7 +170,7 @@ frappe.ui.form.on('Discharge Bill', {
         let ward_charges = 0, icu_charges = 0, room_charges = 0;
 
         if (['Ward 1', 'Ward 2'].includes(frm.doc.admit_in)) {
-            ward_charges = frm.doc.no_of_days * 6000;
+            ward_charges = frm.doc.no_of_days * 7000;
         }
 
         if (frm.doc.admit_in === 'ICU') {
@@ -197,7 +190,7 @@ frappe.ui.form.on('Discharge Bill', {
     },
 
     on_oxygen_days: function(frm) {
-        frm.set_value('oxygen_charges', (frm.doc.on_oxygen_days || 0) * 6000);
+        frm.set_value('oxygen_charges', (frm.doc.on_oxygen_days || 0) * 7000);
         frm.trigger('calculate_total');
     },
 
@@ -205,8 +198,8 @@ frappe.ui.form.on('Discharge Bill', {
         let days = frm.doc.no_of_days || 0;
         frm.set_value('tahir_visiting_fee', days * 3000);
         frm.set_value('abdul_visiting_fee', days * 2000);
-        frm.set_value('medical_officer', days * 500);
-        frm.set_value('nursing_care', days * 300);
+        frm.set_value('medical_officer', days * 1000);
+        frm.set_value('nursing_care', days * 500);
         frm.trigger('calculate_total');
     },
 
@@ -246,3 +239,17 @@ frappe.ui.form.on('Discharge Bill', {
         frm.refresh_field('grand_total');
     }
 });
+frappe.ui.form.on('Discharge Bill', {
+    setup: function(frm) {
+        frm.set_query("admission_no", function() {
+            return {
+                filters: {
+                    docstatus: 0  // Show only Draft (unsaved/submittable) appointments
+                }
+            };
+        });
+    }
+});
+
+
+

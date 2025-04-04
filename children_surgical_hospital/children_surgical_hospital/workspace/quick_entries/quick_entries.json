@@ -1,11 +1,11 @@
 {
  "charts": [],
- "content": "[{\"id\":\"WpA_wnwV_O\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Patient Record Section</b></span>\",\"col\":12}},{\"id\":\"XQtV39AJfV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Patient Records\",\"col\":4}},{\"id\":\"NxhTBMPLs8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Patient Record List\",\"col\":4}},{\"id\":\"16eIk-9T-E\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"CSH Logo\",\"col\":4}},{\"id\":\"yIq0QJc5Dz\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Appointment Section</b></span>\",\"col\":12}},{\"id\":\"mNi70pLnU8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Patient Appointment\",\"col\":4}},{\"id\":\"foTU7tKgEx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Appointment list\",\"col\":4}},{\"id\":\"XZSvG3So7q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Appointment Report\",\"col\":4}},{\"id\":\"0gseyrUsMX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Emergency Patient Section</b></span>\",\"col\":12}},{\"id\":\"Ne90OiWoxy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Emergency Patient\",\"col\":4}},{\"id\":\"iLudysF1SM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Emergency List\",\"col\":4}},{\"id\":\"Qp0JMeoeJ4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Emergency Report\",\"col\":4}},{\"id\":\"mvNDSOdGSu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Admission Section</b></span>\",\"col\":12}},{\"id\":\"WZf9AHly8j\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Admission\",\"col\":4}},{\"id\":\"xylsz_ww_u\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Admission List\",\"col\":4}},{\"id\":\"tVV-_0dnsu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Admission Report\",\"col\":4}},{\"id\":\"K9DT757muq\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Additional Payments Section</b></span>\",\"col\":12}},{\"id\":\"CXWITzDTVD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Payment\",\"col\":4}},{\"id\":\"VObFEhlKpk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Additional Payments List\",\"col\":4}},{\"id\":\"56JtMseusM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Additional Payment Report\",\"col\":4}},{\"id\":\"wGpFnzwK1M\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Lab Reports Section</b></span>\",\"col\":12}},{\"id\":\"-gxAHNI6vb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Lab Tests\",\"col\":4}},{\"id\":\"gSaiGrxVRC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Labs List\",\"col\":4}},{\"id\":\"QcalxXO9wU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Lab Report\",\"col\":4}},{\"id\":\"aHlhzE8HV2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Expenses Section</b></span>\",\"col\":12}},{\"id\":\"YKvzfKwolQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Expense\",\"col\":4}},{\"id\":\"qrrVDUIxRe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expenses List\",\"col\":4}},{\"id\":\"H-l7JkM-1G\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Report\",\"col\":4}},{\"id\":\"MWgqgMPgkU\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Summary Section</b></span>\",\"col\":12}},{\"id\":\"RN9hLqSd48\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Summary Report\",\"col\":4}}]",
+ "content": "[{\"id\":\"WpA_wnwV_O\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Patient Record Section</b></span>\",\"col\":12}},{\"id\":\"XQtV39AJfV\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Patient Records\",\"col\":4}},{\"id\":\"QwIx7jIdvD\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Patient Record List\",\"col\":4}},{\"id\":\"NdNtJFB74n\",\"type\":\"custom_block\",\"data\":{\"custom_block_name\":\"Shahab\",\"col\":4}},{\"id\":\"yIq0QJc5Dz\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Appointment Section</b></span>\",\"col\":12}},{\"id\":\"mNi70pLnU8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Patient Appointment\",\"col\":4}},{\"id\":\"foTU7tKgEx\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Appointment list\",\"col\":4}},{\"id\":\"XZSvG3So7q\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Appointment Report\",\"col\":4}},{\"id\":\"0gseyrUsMX\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Emergency Patient Section</b></span>\",\"col\":12}},{\"id\":\"Ne90OiWoxy\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Emergency Patient\",\"col\":4}},{\"id\":\"iLudysF1SM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Emergency List\",\"col\":4}},{\"id\":\"Qp0JMeoeJ4\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Emergency Report\",\"col\":4}},{\"id\":\"mvNDSOdGSu\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Admission &amp; Discharge Section</b></span>\",\"col\":12}},{\"id\":\"WZf9AHly8j\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Admission\",\"col\":4}},{\"id\":\"xylsz_ww_u\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Admission List\",\"col\":4}},{\"id\":\"tVV-_0dnsu\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Admission Report\",\"col\":4}},{\"id\":\"qT_ub4mlWK\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Discharge\",\"col\":4}},{\"id\":\"RPz5O8Ktje\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Discharge List\",\"col\":4}},{\"id\":\"K9DT757muq\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Additional Payments Section</b></span>\",\"col\":12}},{\"id\":\"CXWITzDTVD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Payment\",\"col\":4}},{\"id\":\"VObFEhlKpk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Additional Payments List\",\"col\":4}},{\"id\":\"56JtMseusM\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Additional Payment Report\",\"col\":4}},{\"id\":\"wGpFnzwK1M\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Lab Reports Section</b></span>\",\"col\":12}},{\"id\":\"-gxAHNI6vb\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Lab Tests\",\"col\":4}},{\"id\":\"gSaiGrxVRC\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Labs List\",\"col\":4}},{\"id\":\"QcalxXO9wU\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Lab Report\",\"col\":4}},{\"id\":\"aHlhzE8HV2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Expenses Section</b></span>\",\"col\":12}},{\"id\":\"YKvzfKwolQ\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"New Expense\",\"col\":4}},{\"id\":\"qrrVDUIxRe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expenses List\",\"col\":4}},{\"id\":\"H-l7JkM-1G\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Report\",\"col\":4}},{\"id\":\"MWgqgMPgkU\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Summary Section</b></span>\",\"col\":12}},{\"id\":\"RN9hLqSd48\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"View Summary Report\",\"col\":4}}]",
  "creation": "2025-02-25 00:03:38.320168",
  "custom_blocks": [
   {
-   "custom_block_name": "CSH Logo",
-   "label": "CSH Logo"
+   "custom_block_name": "Shahab",
+   "label": "Shahab"
   }
  ],
  "docstatus": 0,
@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "Quick Entries",
  "links": [],
- "modified": "2025-03-12 20:50:50.824255",
+ "modified": "2025-04-03 21:03:52.428354",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Quick Entries",
@@ -31,7 +31,13 @@
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "document_type": "Patient Record",
+   "label": "Patient Record List",
+   "quick_list_filter": "[]"
+  }
+ ],
  "roles": [
   {
    "role": "Receptionist"
@@ -41,6 +47,9 @@
   },
   {
    "role": "Doctor"
+  },
+  {
+   "role": "Guest"
   }
  ],
  "sequence_id": 1.0,
@@ -50,6 +59,22 @@
    "doc_view": "New",
    "label": "New Lab Tests",
    "link_to": "Lab Reports",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "New",
+   "label": "New Discharge",
+   "link_to": "Discharge Bill",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "View Discharge List",
+   "link_to": "Discharge Bill",
    "stats_filter": "[]",
    "type": "DocType"
   },
@@ -106,14 +131,6 @@
    "doc_view": "New",
    "label": "New Expense",
    "link_to": "Expenses",
-   "stats_filter": "[]",
-   "type": "DocType"
-  },
-  {
-   "color": "Grey",
-   "doc_view": "List",
-   "label": "Patient Record List",
-   "link_to": "Patient Record",
    "stats_filter": "[]",
    "type": "DocType"
   },

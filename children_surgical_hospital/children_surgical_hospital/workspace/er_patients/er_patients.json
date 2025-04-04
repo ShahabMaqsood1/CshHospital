@@ -13,7 +13,7 @@
  "is_hidden": 0,
  "label": "ER Patients",
  "links": [],
- "modified": "2025-03-02 14:45:06.253236",
+ "modified": "2025-03-16 10:49:58.126917",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "ER Patients",
@@ -36,7 +36,7 @@
    "role": "Receptionist"
   }
  ],
- "sequence_id": 4.0,
+ "sequence_id": 5.0,
  "shortcuts": [
   {
    "color": "Grey",

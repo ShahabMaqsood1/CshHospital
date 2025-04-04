@@ -1,11 +1,6 @@
 {
- "charts": [
-  {
-   "chart_name": "Expense Chart",
-   "label": "Expense Chart"
-  }
- ],
- "content": "[{\"id\":\"gcGNEnNGb3\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Expenses Count\",\"col\":6}},{\"id\":\"Z8bGFBOlMe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create New Expense\",\"col\":7}},{\"id\":\"aL36zwp3Lk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Report\",\"col\":5}},{\"id\":\"Ufu8G9jEUN\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Expense Chart\",\"col\":8}}]",
+ "charts": [],
+ "content": "[{\"id\":\"Z8bGFBOlMe\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create New Expense\",\"col\":7}},{\"id\":\"aL36zwp3Lk\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Expense Report\",\"col\":5}},{\"id\":\"IJJIGofIk4\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"View Expenses List\",\"col\":4}}]",
  "creation": "2025-02-12 23:04:21.468885",
  "custom_blocks": [],
  "docstatus": 0,
@@ -18,20 +13,21 @@
  "is_hidden": 0,
  "label": "Hospital Expense",
  "links": [],
- "modified": "2025-03-02 14:45:06.480373",
+ "modified": "2025-03-24 20:38:17.206393",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Hospital Expense",
- "number_cards": [
-  {
-   "label": "Expenses Count",
-   "number_card_name": "Expenses"
-  }
- ],
+ "number_cards": [],
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "document_type": "Expenses",
+   "label": "View Expenses List",
+   "quick_list_filter": "[]"
+  }
+ ],
  "roles": [
   {
    "role": "System Manager"
