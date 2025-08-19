@@ -201,7 +201,7 @@ frappe.ui.form.on('Patient Appointment', {
         // Automatically close the dialog after 10 seconds
         setTimeout(() => {
             dialog.hide();
-        }, 10000); // 10 seconds
+        }, 2000); // 10 seconds
     }
 });
 

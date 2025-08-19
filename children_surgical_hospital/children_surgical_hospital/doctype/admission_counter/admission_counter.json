@@ -1,50 +1,41 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{receptionist}",
- "creation": "2025-01-20 17:13:48.310865",
+ "creation": "2025-06-17 00:07:11.481463",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
-  "receptionist"
+  "year",
+  "numbering"
  ],
  "fields": [
   {
-   "fieldname": "receptionist",
-   "fieldtype": "Data",
-   "label": "Receptionist"
+   "fieldname": "year",
+   "fieldtype": "Int",
+   "label": "Year"
+  },
+  {
+   "fieldname": "numbering",
+   "fieldtype": "Int",
+   "label": "Numbering"
   }
  ],
  "index_web_pages_for_search": 1,
+ "issingle": 1,
  "links": [],
- "modified": "2025-04-20 20:06:17.092697",
+ "modified": "2025-06-17 00:07:53.805431",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
- "name": "Receptionist",
- "naming_rule": "Expression",
+ "name": "Admission Counter",
  "owner": "Administrator",
  "permissions": [
   {
    "create": 1,
    "delete": 1,
    "email": 1,
-   "export": 1,
    "print": 1,
    "read": 1,
-   "report": 1,
    "role": "System Manager",
-   "share": 1,
-   "write": 1
-  },
-  {
-   "create": 1,
-   "delete": 1,
-   "email": 1,
-   "export": 1,
-   "print": 1,
-   "read": 1,
-   "report": 1,
-   "role": "Receptionist",
    "share": 1,
    "write": 1
   }

@@ -1,0 +1,127 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{Exp}-{DD}/{MM}/{YYYY}-{####}",
+ "creation": "2025-06-27 19:29:00.177559",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_8zw2",
+  "expense_type",
+  "item",
+  "total_amount",
+  "column_break_xbgg",
+  "date",
+  "unit_price",
+  "remarks",
+  "column_break_gccs",
+  "time",
+  "quantity",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_8zw2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "expense_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Expense Type",
+   "options": "\nSite Expense\nPersonal Expense\nDoctor's House\nOther"
+  },
+  {
+   "fieldname": "item",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item/Description"
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "column_break_xbgg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit_price",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Unit Price",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_gccs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "New Hospital Expense",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-27 21:27:47.262072",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "New Hospital Expense",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "New Hospital",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

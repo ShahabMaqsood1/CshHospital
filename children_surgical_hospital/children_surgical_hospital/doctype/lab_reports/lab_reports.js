@@ -231,7 +231,7 @@ frappe.ui.form.on("Lab Reports", {
                     }
                 });
             }
-        }, 5000); // 5-second delay
+        }, 2000); // 2-second delay
     },
 
     patient_id: function (frm) {

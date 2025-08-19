@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "format:{ADM}{YYYY}-{######}",
+ "autoname": "format:{admission_number}",
  "creation": "2025-02-17 18:56:59.247825",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -30,7 +30,8 @@
   "receptionist",
   "column_break_akzw",
   "date_of_discharge",
-  "time_of_discharge"
+  "time_of_discharge",
+  "admission_number"
  ],
  "fields": [
   {
@@ -39,8 +40,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Medical Record Number (MR)",
-   "options": "Patient Record",
-   "reqd": 1
+   "options": "Patient Record"
   },
   {
    "fieldname": "patient_name",
@@ -76,7 +76,6 @@
    "fieldname": "date",
    "fieldtype": "Date",
    "label": "Date of Admission",
-   "read_only": 1,
    "reqd": 1
   },
   {
@@ -142,7 +141,6 @@
    "fieldname": "time_of_admission",
    "fieldtype": "Time",
    "label": "Time of Admission",
-   "read_only": 1,
    "reqd": 1
   },
   {
@@ -170,8 +168,7 @@
   {
    "fieldname": "phone_number",
    "fieldtype": "Data",
-   "label": "Phone",
-   "reqd": 1
+   "label": "Phone"
   },
   {
    "fieldname": "email",
@@ -189,12 +186,18 @@
    "fieldtype": "Data",
    "label": "Identity Card Number(CNIC)",
    "reqd": 1
+  },
+  {
+   "fieldname": "admission_number",
+   "fieldtype": "Data",
+   "label": "Admission Number",
+   "read_only": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-04 19:34:58.361738",
+ "modified": "2025-06-17 00:13:24.436456",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "New Admission",

@@ -41,13 +41,20 @@
    "label": "To Time",
    "mandatory": 0,
    "wildcard_filter": 0
+  },
+  {
+   "fieldname": "show_details",
+   "fieldtype": "Check",
+   "label": "Show Details",
+   "mandatory": 0,
+   "wildcard_filter": 0
   }
  ],
  "idx": 0,
  "is_standard": "Yes",
  "letter_head": "",
  "letterhead": null,
- "modified": "2025-03-18 00:24:11.527358",
+ "modified": "2025-07-20 20:15:49.037193",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Summary",

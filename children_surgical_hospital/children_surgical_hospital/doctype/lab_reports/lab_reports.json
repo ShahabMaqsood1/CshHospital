@@ -58,8 +58,7 @@
    "default": "Today",
    "fieldname": "date_of_report",
    "fieldtype": "Date",
-   "label": "Date",
-   "read_only": 1
+   "label": "Date"
   },
   {
    "fieldname": "column_break_cbin",
@@ -117,8 +116,7 @@
    "default": "Now",
    "fieldname": "time",
    "fieldtype": "Time",
-   "label": "Collection Time",
-   "read_only": 1
+   "label": "Collection Time"
   },
   {
    "fieldname": "doctor",
@@ -156,7 +154,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-04 19:36:49.123135",
+ "modified": "2025-04-10 14:39:01.309486",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Lab Reports",

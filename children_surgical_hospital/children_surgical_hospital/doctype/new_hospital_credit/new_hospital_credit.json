@@ -1,0 +1,105 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{Credit}-{DD}/{MM}/{YYYY}-{####}",
+ "creation": "2025-06-27 19:32:44.881302",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_8zw2",
+  "credit_from",
+  "total_credit_amount",
+  "column_break_xbgg",
+  "date",
+  "remarks",
+  "column_break_gccs",
+  "time",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_8zw2",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_xbgg",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "column_break_gccs",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "credit_from",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Credit From",
+   "options": "Dr. Tahir"
+  },
+  {
+   "fieldname": "total_credit_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Credit Amount",
+   "non_negative": 1,
+   "precision": "0"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "New Hospital Credit",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2025-06-27 21:28:05.645601",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "New Hospital Credit",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "New Hospital",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

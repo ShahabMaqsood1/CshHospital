@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{transferred_by}-{YYYY}/{#####}",
+ "creation": "2025-06-17 00:25:25.118997",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_1zvw",
+  "date",
+  "transfer_mode",
+  "receptionist",
+  "patient_id",
+  "patient_name",
+  "column_break_niax",
+  "time",
+  "transferred_by",
+  "amended_from",
+  "transaction_id",
+  "payment_amount",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_1zvw",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Bank Deposit",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "read_only": 1
+  },
+  {
+   "default": "Now",
+   "fieldname": "time",
+   "fieldtype": "Time",
+   "label": "Time",
+   "read_only": 1
+  },
+  {
+   "fieldname": "transfer_mode",
+   "fieldtype": "Select",
+   "label": "Transfer Mode",
+   "options": "Hospital Cash\nJazzCash\nEasyPaisa\nMeezan Bank\nUnited Bank Limited\nAlfalah Bank\nBank of Punjab(BOP)"
+  },
+  {
+   "fieldname": "transferred_by",
+   "fieldtype": "Select",
+   "label": "Transferred by",
+   "options": "Receptionist\nPatient"
+  },
+  {
+   "fetch_from": "patient_id.patient_name",
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Patient Name"
+  },
+  {
+   "fieldname": "patient_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Mr No",
+   "options": "Patient Record"
+  },
+  {
+   "fieldname": "transaction_id",
+   "fieldtype": "Data",
+   "label": "Transaction ID"
+  },
+  {
+   "fieldname": "payment_amount",
+   "fieldtype": "Currency",
+   "label": "Payment Amount",
+   "precision": "0"
+  },
+  {
+   "fieldname": "receptionist",
+   "fieldtype": "Link",
+   "label": "Receptionist",
+   "options": "Receptionist"
+  },
+  {
+   "fieldname": "column_break_niax",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Data",
+   "label": "Remarks"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2025-06-18 21:53:47.677937",
+ "modified_by": "Administrator",
+ "module": "Children Surgical Hospital",
+ "name": "Bank Deposit",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

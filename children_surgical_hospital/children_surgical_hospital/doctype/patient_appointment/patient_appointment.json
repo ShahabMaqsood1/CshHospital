@@ -14,16 +14,16 @@
   "appointment_number",
   "section_break_exad",
   "column_break_duoa",
-  "patient_name",
-  "gender",
   "phone_number",
-  "email",
+  "patient_name",
+  "father_name",
+  "gender",
   "age",
   "column_break_qjqo",
-  "father_name",
-  "weight",
+  "email",
   "cnic",
   "address",
+  "weight",
   "section_break_lymc",
   "years",
   "column_break_rfeu",
@@ -57,7 +57,7 @@
    "fieldtype": "Float",
    "in_list_view": 1,
    "label": "Payment",
-   "precision": "2",
+   "precision": "0",
    "reqd": 1
   },
   {
@@ -76,7 +76,6 @@
    "options": "Patient Record"
   },
   {
-   "fetch_from": "patient_id.patient_name",
    "fieldname": "patient_name",
    "fieldtype": "Data",
    "in_list_view": 1,
@@ -84,7 +83,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "patient_id.age",
    "fieldname": "age",
    "fieldtype": "Data",
    "label": "Age",
@@ -92,13 +90,11 @@
    "reqd": 1
   },
   {
-   "fetch_from": "patient_id.weight",
    "fieldname": "weight",
    "fieldtype": "Float",
    "label": "Weight"
   },
   {
-   "fetch_from": "patient_id.contact_number",
    "fieldname": "phone_number",
    "fieldtype": "Data",
    "label": "Phone Number"
@@ -120,7 +116,6 @@
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Appointment Date",
-   "read_only": 1,
    "reqd": 1
   },
   {
@@ -134,7 +129,6 @@
    "reqd": 1
   },
   {
-   "fetch_from": "patient_id.gender",
    "fieldname": "gender",
    "fieldtype": "Select",
    "label": "Gender",
@@ -221,14 +215,12 @@
    "read_only": 1
   },
   {
-   "fetch_from": "patient_id.father_name",
    "fieldname": "father_name",
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Father Name"
   },
   {
-   "fetch_from": "patient_id.cnic",
    "fieldname": "cnic",
    "fieldtype": "Data",
    "label": "CNIC / Passport No."
@@ -295,7 +287,7 @@
  "is_calendar_and_gantt": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-04 20:40:25.978118",
+ "modified": "2025-06-30 14:17:14.189372",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Patient Appointment",

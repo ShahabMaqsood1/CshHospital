@@ -20,6 +20,7 @@
   "date_of_discharge",
   "time_of_discharge",
   "admit_in",
+  "father_name",
   "on_oxygen_days",
   "section_break_twhf",
   "admission_fee",
@@ -30,9 +31,11 @@
   "section_break_unti",
   "tahir_visiting_fee",
   "abid_visiting_fee",
+  "medical_officer",
   "column_break_yjjk",
   "abdul_visiting_fee",
-  "medical_officer",
+  "dr_ali_imran",
+  "dr_moeeza",
   "section_break_utab",
   "ward_charges",
   "room_charges",
@@ -207,8 +210,7 @@
   {
    "fieldname": "anaethetist_fee",
    "fieldtype": "Data",
-   "label": "Anaethetist Fee",
-   "read_only": 1
+   "label": "Anaethetist Fee"
   },
   {
    "fieldname": "ward_charges",
@@ -223,8 +225,7 @@
   {
    "fieldname": "theater_charges",
    "fieldtype": "Data",
-   "label": "Theater Fee",
-   "read_only": 1
+   "label": "Theater Fee"
   },
   {
    "fieldname": "room_charges",
@@ -234,7 +235,7 @@
   {
    "fieldname": "abid_visiting_fee",
    "fieldtype": "Data",
-   "label": "Dr. Abid Hussain Visiting Fee"
+   "label": "Dr. Muhammad Latif"
   },
   {
    "fieldname": "no_of_days",
@@ -311,15 +312,29 @@
    "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "hidden": 1,
-   "label": "date",
-   "read_only": 1
+   "label": "date"
+  },
+  {
+   "fetch_from": "admission_no.father_name",
+   "fieldname": "father_name",
+   "fieldtype": "Data",
+   "label": "Father Name"
+  },
+  {
+   "fieldname": "dr_ali_imran",
+   "fieldtype": "Data",
+   "label": "Dr. Ali Imran"
+  },
+  {
+   "fieldname": "dr_moeeza",
+   "fieldtype": "Data",
+   "label": "Dr. Moeeza Khawar"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-04 19:35:57.272960",
+ "modified": "2025-08-15 00:52:23.610493",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Discharge Bill",

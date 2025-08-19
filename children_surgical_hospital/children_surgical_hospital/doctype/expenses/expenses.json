@@ -32,6 +32,7 @@
   {
    "fieldname": "payment_amount",
    "fieldtype": "Currency",
+   "in_list_view": 1,
    "label": "Payment Amount",
    "non_negative": 1,
    "precision": "2"
@@ -40,8 +41,7 @@
    "default": "Today",
    "fieldname": "date",
    "fieldtype": "Date",
-   "label": "Date",
-   "read_only": 1
+   "label": "Date"
   },
   {
    "fieldname": "receptionist",
@@ -70,7 +70,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2025-04-04 19:32:56.439370",
+ "modified": "2025-07-06 15:40:54.865553",
  "modified_by": "Administrator",
  "module": "Children Surgical Hospital",
  "name": "Expenses",

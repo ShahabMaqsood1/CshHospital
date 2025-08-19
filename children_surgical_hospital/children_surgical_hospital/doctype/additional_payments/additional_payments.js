@@ -60,7 +60,7 @@ frappe.ui.form.on("Additional Payments", {
                     }
                 });
             }
-        }, 5000); // 5-second delay
+        }, 2000); // 5-second delay
     },
 
     patient_id: function (frm) {

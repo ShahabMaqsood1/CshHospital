@@ -117,7 +117,7 @@ frappe.ui.form.on("New Admission", {
                     }
                 });
             }
-        }, 5000); // 5-second delay
+        }, 2000); // 5-second delay
     },
 
     patient_id: function (frm) {
